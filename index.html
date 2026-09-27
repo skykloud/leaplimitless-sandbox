@@ -1,22 +1,1071 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to leaplimitless.com</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f9; }
-        .container { text-align: center; padding: 3rem; background: white; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        h1 { color: #24292e; margin-bottom: 0.5rem; }
-        p { color: #586069; font-size: 1.1rem; }
-        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; background-color: #e1e4e8; color: #24292e; font-size: 0.875rem; font-weight: 600; margin-top: 1rem; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gagan Sharma | Executive & Life Coach | Leap Limitless</title>
+  <meta name="description" content="Gagan Sharma, ICF-ACC Certified Coach with 20+ years of Fortune 500 leadership experience. Coaching executives, mid-career professionals, entrepreneurs, and immigrant leaders to break ceilings, grow faster, and lead with confidence.">
+  <meta property="og:title" content="Gagan Sharma | Executive & Life Coach | Leap Limitless">
+  <meta property="og:description" content="ICF-ACC Certified Coach | 20+ Years Fortune 500 Leadership | Executive, Career & Immigrant Coaching">
+  <meta property="og:image" content="assets/images/coach_portrait.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to leaplimitless.com</h1>
-        <p>This website is hosted on GitHub Pages and routed via Cloudflare.</p>
-        <div class="badge">Setup Complete 🎉</div>
+
+  <!-- Top Announcement Strip -->
+  <div class="announcement-bar">
+    <span class="pulse-dot"></span>
+    <span>Now Accepting Coaching Clients &bull; Schedule a Complimentary Discovery Call</span>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Leap Limitless Home">
+        <img src="assets/images/logo.svg" alt="Leap Limitless">
+        <div class="brand-logo-text">
+          <span class="brand-logo-name">Leap Limitless</span>
+          <span class="brand-logo-tag">with Gagan Sharma, ACC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="programs.html" class="nav-link">Coaching Programs</a>
+        <a href="#organizations" class="nav-link">For Organizations</a>
+        <a href="immigrant-playbook.html" class="nav-link">Immigrant Playbook</a>
+        <a href="diagnostic.html" class="nav-link">Self-Assessment</a>
+        <a href="case-studies.html" class="nav-link">Success Stories</a>
+        <a href="about.html" class="nav-link">About Gagan</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Book Discovery Call</span>
+          <span class="icon">arrow_forward</span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open Mobile Menu">
+          <span class="icon">menu</span>
+        </button>
+      </div>
     </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <img src="assets/images/logo.svg" alt="Leap Limitless">
+          <span class="brand-logo-name">Leap Limitless</span>
+        </div>
+        <button id="drawer-close" aria-label="Close Menu">
+          <span class="icon" style="font-size: 1.75rem;">close</span>
+        </button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="drawer-link">Home <span class="icon">chevron_right</span></a>
+        <a href="programs.html" class="drawer-link">Coaching Programs <span class="icon">chevron_right</span></a>
+        <a href="#organizations" class="drawer-link">For Organizations <span class="icon">chevron_right</span></a>
+        <a href="immigrant-playbook.html" class="drawer-link">Immigrant Playbook <span class="icon">chevron_right</span></a>
+        <a href="diagnostic.html" class="drawer-link">Self-Assessment <span class="icon">chevron_right</span></a>
+        <a href="case-studies.html" class="drawer-link">Success Stories <span class="icon">chevron_right</span></a>
+        <a href="about.html" class="drawer-link">About Gagan <span class="icon">chevron_right</span></a>
+        <a href="apply.html" class="drawer-link">Book a Call <span class="icon">chevron_right</span></a>
+      </nav>
+    </div>
+    <div style="padding-top: 2rem;">
+      <a href="apply.html" class="btn btn-primary" style="width: 100%;">Book Discovery Call</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-wrapper">
+      <div class="hero-ambient-glow"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Text Content -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+              <span class="badge badge-gold">ICF-ACC Certified Executive Coach</span>
+              <span class="badge badge-outline">20+ Years Fortune 500 Leadership</span>
+            </div>
+
+            <h1 class="display-title" style="margin-bottom: 1.5rem;">
+              Unlock Your <span class="text-gold" style="font-style: italic;">Next Level</span> in Career, Leadership &amp; Life.
+            </h1>
+
+            <p class="body-lg" style="margin-bottom: 2.25rem; max-width: 620px;">
+              Whether you are climbing the corporate ladder, navigating a career pivot, scaling a business, or finding your footing as an immigrant professional, I help you break through invisible ceilings, lead with clarity, and grow without limits.
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 3rem;">
+              <a href="apply.html" class="btn btn-primary btn-lg">
+                <span>Book a Free Discovery Call</span>
+                <span class="icon">arrow_forward</span>
+              </a>
+              <a href="diagnostic.html" class="btn btn-secondary btn-lg">
+                <span class="icon">speed</span>
+                <span>Take the Self-Assessment</span>
+              </a>
+            </div>
+
+            <!-- Trust Signal -->
+            <div style="display: flex; align-items: center; gap: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="badge badge-dark"><span class="icon" style="font-size: 0.9rem;">verified</span> ICF-ACC Certified</span>
+                <span class="badge badge-dark"><span class="icon" style="font-size: 0.9rem;">business_center</span> Fortune 5000 Leader</span>
+                <span class="badge badge-dark"><span class="icon" style="font-size: 0.9rem;">public</span> 20 Years in the USA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Media Column -->
+          <div class="hero-image-frame">
+            <div class="hero-image-inner">
+              <img src="assets/images/coach_portrait.jpg" alt="Gagan Sharma, Executive and Life Coach">
+            </div>
+
+            <!-- Floating Credential Badge -->
+            <a href="https://www.credly.com/badges/68465fb5-b8f0-476b-bab8-09791994bbf8/linked_in_profile" target="_blank" rel="noopener noreferrer" class="floating-stat-badge" style="text-decoration: none; cursor: pointer; transition: transform var(--transition-base), box-shadow var(--transition-base);" title="Verify ICF-ACC Credential on Credly">
+              <img src="assets/images/icf_acc_badge.png" alt="ICF-ACC Certified Badge" style="width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));">
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; line-height: 1.2; color: var(--text-inverse); display: flex; align-items: center; gap: 0.35rem;">
+                  <span>ICF-ACC Certified</span>
+                  <span class="icon" style="font-size: 0.85rem; color: var(--brand-accent-gold);">open_in_new</span>
+                </div>
+                <div class="label-caps" style="color: var(--brand-accent-gold-light); font-size: 0.68rem; margin-top: 0.15rem;">Verify on Credly &rarr;</div>
+              </div>
+            </a>
+
+            <!-- Floating Impact Dossier -->
+            <div class="floating-case-card">
+              <div class="flex-between" style="margin-bottom: 0.35rem;">
+                <span class="label-caps">Client Transformation</span>
+                <span class="badge badge-emerald" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">Recent</span>
+              </div>
+              <h4 style="font-size: 1rem; margin-bottom: 0.35rem; color: var(--brand-primary);">Senior Manager &rarr; VP of Operations</h4>
+              <p class="body-sm" style="font-size: 0.8125rem;">Cracked the promotion ceiling after 6 years. Restructured executive narrative and negotiated a $185K package increase.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Ribbon -->
+        <div class="grid-4" style="margin-top: clamp(3rem, 6vw, 5rem); background: var(--bg-surface); padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-md); border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
+          <div class="metric-pill">
+            <span class="metric-number">20+</span>
+            <span class="metric-label">Years of Leadership</span>
+            <span class="body-sm">in Fortune 5000 organizations across industries.</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-number">6</span>
+            <span class="metric-label">Core Focus Areas</span>
+            <span class="body-sm">Career, Executive Leadership, Immigrant Growth, Business, Skill Building &amp; Problem Solving.</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-number">ICF-ACC</span>
+            <span class="metric-label">Certified Coach</span>
+            <span class="body-sm">International Coaching Federation credentialed for professional & executive coaching.</span>
+          </div>
+          <div class="metric-pill">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">Personalized Approach</span>
+            <span class="body-sm">Every engagement is tailored 1:1 to your unique journey and goals.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="container">
+        <p class="label-caps" style="margin-bottom: 1.25rem;">Experience from &amp; clients positioned within leading global organizations</p>
+        <div class="trust-logos">
+          <span class="trust-logo-item">Fortune 500</span>
+          <span class="trust-logo-item">Technology</span>
+          <span class="trust-logo-item">Healthcare</span>
+          <span class="trust-logo-item">Financial Services</span>
+          <span class="trust-logo-item">Consulting</span>
+          <span class="trust-logo-item">Manufacturing</span>
+          <span class="trust-logo-item">Startups</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO I HELP -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="max-width: 750px; margin: 0 auto 3.5rem; text-align: center;">
+          <span class="label-caps">Who I Work With</span>
+          <h2 class="headline-lg" style="margin: 0.75rem 0 1rem;">
+            Wherever You Are in Your Journey, I've Been There.
+          </h2>
+          <p class="body-lg">
+            With 20 years of lived experience navigating American corporate culture as an immigrant professional who rose into Fortune 5000 leadership, I coach from the inside out, not from a textbook.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">trending_up</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Career Growth &amp; Acceleration</h3>
+            <p class="body-md">
+              Stuck in a role for too long? Ready for a promotion but unsure how to make your case? I help professionals map the path from where they are to where they deserve to be, faster and with clarity.
+            </p>
+          </div>
+
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">corporate_fare</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Executive &amp; Leadership Development</h3>
+            <p class="body-md">
+              Moving into a senior leadership role or navigating complex organizational dynamics? I coach executives to lead teams with authority and empathy, manage upward, and drive results at scale.
+            </p>
+          </div>
+
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">public</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Immigrant Professionals</h3>
+            <p class="body-md">
+              As a 20-year immigrant professional in the USA myself, I uniquely understand the unwritten cultural codes, psychological barriers, and strategic gaps that hold back brilliant immigrant talent.
+            </p>
+          </div>
+
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">swap_horiz</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Mid-Life Career Pivots</h3>
+            <p class="body-md">
+              Feeling stuck, unfulfilled, or at a crossroads mid-career? Whether you are changing industries, returning to work, or exploring a completely new direction, I help you find clarity and move with confidence.
+            </p>
+          </div>
+
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">rocket_launch</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Business Growth &amp; Entrepreneurship</h3>
+            <p class="body-md">
+              Thinking about starting a business? Already running one and hitting a wall? I help you think strategically, validate your model, overcome founder's hesitation, and scale with intention.
+            </p>
+          </div>
+
+          <div class="card-editorial card-gold-border">
+            <span class="icon text-gold" style="font-size: 2rem; margin-bottom: 1rem;">handshake</span>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">Workplace Relationships &amp; Navigation</h3>
+            <p class="body-md">
+              Navigating a difficult boss, a toxic peer, or a resistant team? I help you manage complex workplace dynamics, build political capital, and handle tough situations without losing yourself.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <a href="programs.html" class="btn btn-primary">
+            <span>Explore All Coaching Programs</span>
+            <span class="icon">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAGAN'S STORY TEASER -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--bg-dark-border);">
+            <img src="assets/images/boardroom_presentation.jpg" alt="Executive leadership and growth coaching">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(10,22,18,0.95), transparent);">
+              <span class="label-caps" style="color: var(--brand-accent-gold);">20 Years of Lived Experience</span>
+              <h4 style="color: var(--text-inverse); font-size: 1.15rem; margin-top: 0.25rem;">From Immigrant Professional to Fortune 5000 Leader</h4>
+            </div>
+          </div>
+
+          <div>
+            <span class="label-caps" style="color: var(--brand-accent-gold);">Why Gagan?</span>
+            <h2 class="headline-lg" style="margin: 0.75rem 0 1.25rem;">
+              I Coach What I've Actually Lived Through.
+            </h2>
+            <p class="body-lg" style="margin-bottom: 1.25rem;">
+              I came to the United States 20 years ago and built my career through Fortune 5000 organizations, navigating the cultural codes, organizational politics, leadership transitions, and tough workplace situations that most coaches only read about.
+            </p>
+            <p class="body-md" style="color: var(--text-inverse-muted); margin-bottom: 1.5rem;">
+              As an ICF-ACC Certified Coach, I bring a rare combination: deep corporate leadership experience, coaching credentials, and genuine understanding of what it means to grow in a system that wasn't originally designed for you.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span class="icon text-gold" style="margin-top: 2px;">check_circle</span>
+                <p class="body-md" style="color: var(--text-inverse);">Leadership roles in Fortune 5000 companies across multiple industries.</p>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span class="icon text-gold" style="margin-top: 2px;">check_circle</span>
+                <p class="body-md" style="color: var(--text-inverse);">20 years navigating the American corporate landscape as an immigrant professional.</p>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <span class="icon text-gold" style="margin-top: 2px;">check_circle</span>
+                <p class="body-md" style="color: var(--text-inverse);">ICF-ACC credentialed for professional &amp; executive coaching.</p>
+              </div>
+            </div>
+            <a href="about.html" class="btn btn-gold">
+              <span>Read My Full Story</span>
+              <span class="icon">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR ORGANIZATIONS & ENTERPRISE LEADERS -->
+    <section class="section section-alt" id="organizations">
+      <div class="container">
+        <div style="max-width: 820px; margin: 0 auto 3.5rem; text-align: center;">
+          <span class="badge badge-gold" style="margin-bottom: 0.75rem;">Enterprise &amp; Organizational Advisory</span>
+          <h2 class="headline-lg" style="margin: 0.5rem 0 1rem;">
+            Why Forward-Thinking Organizations Invest in Executive Coaching
+          </h2>
+          <p class="body-lg" style="color: var(--text-secondary);">
+            In an era defined by AI acceleration, cross-cultural teams, and lean operating structures, enterprise growth is capped by leadership capacity. Professional coaching transforms technical and high-performing talent into strategic, resilient leaders who drive focus, retention, and measurable business velocity.
+          </p>
+        </div>
+
+        <!-- 3-Tier Stakeholder Impact Grid -->
+        <div class="grid-3" style="margin-bottom: 3.5rem;">
+          <!-- 1. For Organizations -->
+          <div class="card-editorial card-gold-border" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                <span class="icon text-gold" style="font-size: 2.25rem;">domain</span>
+                <span class="badge badge-dark">Enterprise Impact</span>
+              </div>
+              <h3 class="headline-sm" style="margin-bottom: 0.75rem; color: var(--brand-primary);">For the Organization</h3>
+              <p class="body-md" style="margin-bottom: 1.25rem;">
+                Protect core intellectual capital, build resilient internal bench strength, and navigate organizational change without costly leadership turnover.
+              </p>
+              <ul style="display: flex; flex-direction: column; gap: 0.75rem;" class="body-sm">
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Reduced Attrition Among Top Talent:</strong> Replacing a seasoned executive or technical director costs 150% to 200% of their compensation. Coaching protects your critical leadership core.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Stronger Succession Bench:</strong> Elevate internal leaders smoothly into VP and C-suite responsibilities, eliminating risky and expensive external recruitment.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Smoother Reorgs &amp; Scaling:</strong> Maintain strategic momentum and cross-functional focus during restructurings, M&amp;A integrations, and market pivots.</span>
+                </li>
+              </ul>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+              <span class="label-caps" style="color: var(--brand-emerald-dark);">Proven Impact: 25% to 17% Attrition Reduction in Enterprise Portfolios</span>
+            </div>
+          </div>
+
+          <!-- 2. For Leaders & Executives -->
+          <div class="card-editorial card-gold-border" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                <span class="icon text-gold" style="font-size: 2.25rem;">psychology</span>
+                <span class="badge badge-dark">Executive Capability</span>
+              </div>
+              <h3 class="headline-sm" style="margin-bottom: 0.75rem; color: var(--brand-primary);">For Leaders &amp; Executives</h3>
+              <p class="body-md" style="margin-bottom: 1.25rem;">
+                Equip leaders to transition from tactical firefighting to enterprise orchestration, decisive execution, and commanding boardroom presence.
+              </p>
+              <ul style="display: flex; flex-direction: column; gap: 0.75rem;" class="body-sm">
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Strategic Focus &amp; Decisive Prioritization:</strong> Cut through daily noise, eliminate cognitive overload, and concentrate energy on needle-moving business objectives.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Boardroom Presence &amp; Stakeholder Influence:</strong> Master high-stakes communication, align cross-functional peers, and build unquestioned executive gravitas.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Conflict Resolution &amp; Politics Mastery:</strong> De-escalate toxic team tensions, resolve peer friction, and lead through ambiguity without burnout.</span>
+                </li>
+              </ul>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+              <span class="label-caps" style="color: var(--brand-accent-gold-dark);">Outcome: From Individual Hero to Enterprise Multiplier</span>
+            </div>
+          </div>
+
+          <!-- 3. For Teams & High Performers -->
+          <div class="card-editorial card-gold-border" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                <span class="icon text-gold" style="font-size: 2.25rem;">groups</span>
+                <span class="badge badge-dark">Team Performance</span>
+              </div>
+              <h3 class="headline-sm" style="margin-bottom: 0.75rem; color: var(--brand-primary);">For Teams &amp; Key Contributors</h3>
+              <p class="body-md" style="margin-bottom: 1.25rem;">
+                Foster psychological safety, unblock hidden capability, and accelerate team velocity through clear delegation and cross-cultural empowerment.
+              </p>
+              <ul style="display: flex; flex-direction: column; gap: 0.75rem;" class="body-sm">
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Unlocking Immigrant &amp; Diverse Talent:</strong> Break the modesty barrier where brilliant technical and quantitative contributors are overlooked for leadership roles.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>Autonomy Without Micromanagement:</strong> Establish clear outcome metrics, empowering team members to solve complex challenges independently.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="font-size: 1.1rem; margin-top: 1px;">check</span>
+                  <span><strong>High-Trust Psychological Safety:</strong> Build an environment where teams surface delivery risks early, debate rigorously, and innovate with confidence.</span>
+                </li>
+              </ul>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+              <span class="label-caps" style="color: var(--brand-emerald-dark);">Result: Higher Engagement, Faster Execution Cycles</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Market Trends & Enterprise Value Banner -->
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: clamp(1.75rem, 3.5vw, 2.75rem); box-shadow: var(--shadow-md);">
+          <div class="grid-2" style="align-items: center; gap: 2.5rem;">
+            <div>
+              <span class="label-caps" style="color: var(--brand-accent-gold-dark);">Current Market Demands</span>
+              <h3 class="headline-md" style="margin: 0.5rem 0 1rem; color: var(--brand-primary);">
+                Three Industry Forces Driving Today's Demand for Executive Coaching
+              </h3>
+              <p class="body-md" style="margin-bottom: 1.25rem;">
+                The post-2025 organizational reality demands a completely new caliber of leadership. Three structural shifts make coaching essential for enterprise success:
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="margin-top: 2px;">bolt</span>
+                  <div>
+                    <h5 style="color: var(--brand-primary); margin-bottom: 0.2rem;">1. AI-Era Leadership &amp; Managerial Unbundling</h5>
+                    <p class="body-sm">As AI takes over routine coordination and automated status reporting, the value of pure task tracking has collapsed. Modern organizations explicitly buy coaching to build human-centric leaders skilled in strategic context, emotional intelligence, and cross-functional persuasion.</p>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="margin-top: 2px;">public</span>
+                  <div>
+                    <h5 style="color: var(--brand-primary); margin-bottom: 0.2rem;">2. The Global &amp; Immigrant Talent Pipeline</h5>
+                    <p class="body-sm">Over 40% of senior engineering, quantitative, and product talent in leading enterprises is immigrant or cross-cultural, yet cultural differences often hold them back from boardroom influence. Coaching unlocks this internal goldmine, turning diversity into institutional leverage.</p>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <span class="icon text-gold" style="margin-top: 2px;">balance</span>
+                  <div>
+                    <h5 style="color: var(--brand-primary); margin-bottom: 0.2rem;">3. Margin Pressure &amp; Lean Execution</h5>
+                    <p class="body-sm">Flattened hierarchies mean every director and VP carries significant operational leverage. Even modest improvements in leadership decision quality and team alignment directly recover project margins and prevent expensive derailments.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operator Credibility Card -->
+            <div style="background: var(--bg-canvas-alt); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 2rem;">
+              <span class="label-caps" style="color: var(--brand-primary);">The Operator Advantage</span>
+              <h4 style="margin: 0.5rem 0 1rem; color: var(--brand-primary); font-size: 1.25rem;">
+                Coaching Grounded in 20 Years of Corporate P&amp;L and Delivery Reality
+              </h4>
+              <p class="body-sm" style="margin-bottom: 1.25rem;">
+                Gagan Sharma does not coach from theoretical HR textbooks. Having delivered multi-million dollar portfolios and led teams within Fortune 5000 enterprises, he understands the corporate board dynamics, delivery pressures, and political realities that executive sponsors face.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;" class="body-sm">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.4rem;">
+                  <span>Corporate Track Record:</span>
+                  <strong>Fortune 5000 Leadership</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.4rem;">
+                  <span>Portfolio Scale Delivered:</span>
+                  <strong>$25M+ Enterprise Accounts</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.4rem;">
+                  <span>Credential Standard:</span>
+                  <strong>ICF-ACC Certified Coach</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Engagement Formats:</span>
+                  <strong>1:1 Retainers, Cohorts &amp; Workshops</strong>
+                </div>
+              </div>
+              <a href="apply.html" class="btn btn-primary" style="width: 100%; text-align: center;">
+                <span>Inquire About Corporate Coaching</span>
+                <span class="icon">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DIAGNOSTIC SECTION -->
+    <section class="section" id="diagnostic-preview">
+      <div class="container">
+        <div style="max-width: 750px; margin: 0 auto 3rem; text-align: center;">
+          <span class="label-caps">Free Self-Assessment</span>
+          <h2 class="headline-lg" style="margin: 0.75rem 0 1rem;">
+            Where Is Your Growth Being Blocked?
+          </h2>
+          <p class="body-lg">
+            Take this 60-second assessment to identify your Executive Readiness, Career Momentum, and Cultural Confidence scores, and receive a personalized action plan.
+          </p>
+        </div>
+
+        <!-- Diagnostic Widget -->
+        <div id="career-diagnostic" class="diagnostic-container" style="max-width: 860px; margin: 0 auto;">
+          <div class="diagnostic-header">
+            <div>
+              <span class="label-caps" style="color: var(--brand-accent-gold-light);">Gagan's Growth Assessment</span>
+              <h3 style="font-size: 1.25rem; color: var(--text-inverse); margin-top: 0.25rem;">
+                Question <span id="current-step-num">1</span> of 6
+              </h3>
+            </div>
+            <div class="badge badge-gold">Free &amp; Confidential</div>
+          </div>
+
+          <div class="diagnostic-progress-bar">
+            <div class="diagnostic-progress-fill"></div>
+          </div>
+
+          <div class="diagnostic-body">
+            <div id="diagnostic-questions-wrapper">
+              <!-- STEP 1 -->
+              <div class="diagnostic-step active" data-step="0">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 1: Career Momentum</span>
+                </div>
+                <h4 class="diagnostic-question-title">How would you describe your current career trajectory?</h4>
+                <p class="diagnostic-question-desc">Honest self-reflection is the first step toward meaningful growth.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Stagnant: I have been in the same role or level for too long</h5>
+                      <p>I feel stuck and unsure of how to break through to the next level.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Moving but uncertain: progress feels slow or unclear</h5>
+                      <p>I'm getting by but lack a clear roadmap or sense of strategic direction.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Growing, but ready for a significant leap</h5>
+                      <p>I'm doing well but I know there's a much bigger opportunity I'm not fully accessing yet.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="diagnostic-step" data-step="1">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 2: Leadership Presence</span>
+                </div>
+                <h4 class="diagnostic-question-title">How do you show up in high-stakes conversations at work?</h4>
+                <p class="diagnostic-question-desc">Think about senior meetings, difficult negotiations, or delivering unpopular decisions.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I often hold back or over-explain myself</h5>
+                      <p>I struggle to project confidence or feel dismissed when I do speak up.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I participate but don't always drive the narrative</h5>
+                      <p>I contribute, but rarely walk away feeling like I shaped the room or the decision.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I command the conversation with clarity and calm</h5>
+                      <p>I lead high-stakes dialogue confidently and influence decisions effectively.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div class="diagnostic-step" data-step="2">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 3: Workplace Relationships</span>
+                </div>
+                <h4 class="diagnostic-question-title">How are your key relationships at work (with your boss, peers, and team)?</h4>
+                <p class="diagnostic-question-desc">Strong relationships are the invisible infrastructure of every successful career.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>There are real friction points that are costing me</h5>
+                      <p>Difficult relationships with my manager, a peer, or my team are creating tension and limiting my impact.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Cordial, but I lack real executive allies or sponsors</h5>
+                      <p>People like me but nobody is actively championing my advancement behind closed doors.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Strong, trust-based relationships across levels</h5>
+                      <p>I have genuine advocates, manage team conflict well, and am seen as a collaborative leader.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 4 -->
+              <div class="diagnostic-step" data-step="3">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 4: Cultural Confidence</span>
+                </div>
+                <h4 class="diagnostic-question-title">How comfortable are you navigating the unwritten cultural rules of your workplace?</h4>
+                <p class="diagnostic-question-desc">Especially relevant for professionals from diverse backgrounds working in Western corporate environments.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I often feel like an outsider who doesn't know the unspoken rules</h5>
+                      <p>I work hard but sense there's a cultural "code" I'm missing that's holding me back.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I've figured some of it out, but still feel at a disadvantage</h5>
+                      <p>I navigate reasonably well but know my background sometimes creates friction or miscommunication.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>My diverse perspective is an asset I leverage strategically</h5>
+                      <p>I read the room, adapt my communication, and use my cross-cultural lens as a competitive advantage.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 5 -->
+              <div class="diagnostic-step" data-step="4">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 5: Clarity &amp; Direction</span>
+                </div>
+                <h4 class="diagnostic-question-title">How clear are you on your next big career or business move?</h4>
+                <p class="diagnostic-question-desc">Clarity is the prerequisite for all breakthrough action.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Genuinely confused: I don't know what I want or where to go</h5>
+                      <p>I feel overwhelmed by options or stuck between staying and making a change.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I have a rough direction but lack a concrete plan</h5>
+                      <p>I know broadly what I want but keep getting stuck on the "how" and procrastinating execution.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>I know exactly what I want: I need strategy and accountability</h5>
+                      <p>I have a clear vision and am looking for structured support to execute faster and smarter.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 6 -->
+              <div class="diagnostic-step" data-step="5">
+                <div class="diagnostic-question-meta">
+                  <span class="badge badge-outline">Pillar 6: Your Goal</span>
+                </div>
+                <h4 class="diagnostic-question-title">What is your most important goal right now?</h4>
+                <p class="diagnostic-question-desc">Help me understand exactly how I can be most useful to you.</p>
+                <div class="diagnostic-options">
+                  <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Get promoted or transition into a new, better role</h5>
+                      <p>I want to break the ceiling, move up in title and compensation, or land a great new position.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Become a stronger, more confident leader</h5>
+                      <p>I want to lead teams more effectively, handle difficult situations better, and grow my executive presence.</p>
+                    </div>
+                  </div>
+                  <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                    <div class="option-radio"></div>
+                    <div class="option-text">
+                      <h5>Start or scale a business / make a major life pivot</h5>
+                      <p>I want to explore entrepreneurship, make a career shift, or build something new with clarity and confidence.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Diagnostic Nav Controls -->
+              <div class="diagnostic-footer">
+                <button type="button" id="diag-prev-btn" class="btn btn-ghost btn-sm" style="visibility: hidden;">
+                  <span class="icon">arrow_back</span>
+                  <span>Previous</span>
+                </button>
+                <button type="button" id="diag-next-btn" class="btn btn-primary" disabled>
+                  <span>Continue</span>
+                  <span class="icon">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- RESULTS VIEW -->
+            <div id="diagnostic-results" class="diagnostic-results">
+              <div class="results-badge-wrapper">
+                Your Growth Profile &bull; Generated by Gagan's Assessment
+              </div>
+              <h3 id="archetype-title" class="headline-md" style="margin-bottom: 0.75rem; color: var(--brand-primary);">
+                The High-Potential Underutilizer
+              </h3>
+              <p id="archetype-desc" class="body-md" style="max-width: 620px; margin: 0 auto 2rem;">
+                Calculating your personalized profile...
+              </p>
+
+              <div class="results-score-grid">
+                <div class="score-card">
+                  <div class="flex-between">
+                    <span class="label-caps">Executive Readiness</span>
+                    <strong id="num-gravitas" style="color: var(--brand-primary);">68%</strong>
+                  </div>
+                  <div class="score-bar-bg">
+                    <div id="score-gravitas" class="score-bar-value" style="width: 68%;"></div>
+                  </div>
+                  <p class="body-sm" style="margin-top: 0.75rem;">Leadership presence, decision authority, and organizational influence.</p>
+                </div>
+
+                <div class="score-card">
+                  <div class="flex-between">
+                    <span class="label-caps">Cultural Confidence</span>
+                    <strong id="num-cultural" style="color: var(--brand-accent-gold-dark);">54%</strong>
+                  </div>
+                  <div class="score-bar-bg">
+                    <div id="score-cultural" class="score-bar-value" style="width: 54%; background: var(--brand-accent-gold);"></div>
+                  </div>
+                  <p class="body-sm" style="margin-top: 0.75rem;">Navigating workplace culture, political fluency, and cross-cultural leverage.</p>
+                </div>
+
+                <div class="score-card">
+                  <div class="flex-between">
+                    <span class="label-caps">Career Momentum</span>
+                    <strong id="num-comp" style="color: var(--brand-emerald-dark);">42%</strong>
+                  </div>
+                  <div class="score-bar-bg">
+                    <div id="score-comp" class="score-bar-value" style="width: 42%; background: var(--brand-emerald);"></div>
+                  </div>
+                  <p class="body-sm" style="margin-top: 0.75rem;">Strategic direction, advancement velocity, and market positioning.</p>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 1.5rem; text-align: left; margin-bottom: 2rem;">
+                <h4 style="font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 0.5rem;">Gagan's Recommended Next Steps:</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.5rem;" class="body-sm">
+                  <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Book a complimentary 30-minute discovery call to discuss your specific situation.</li>
+                  <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Identify the top 1 to 2 leverage points that will create the most breakthrough in the next 90 days.</li>
+                  <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Build a personalized coaching plan aligned to your career stage, goals, and culture.</li>
+                </ul>
+              </div>
+
+              <a href="apply.html" class="btn btn-primary btn-lg">
+                <span>Book Your Free 30-Min Discovery Call</span>
+                <span class="icon">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPENSATION CALCULATOR -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="max-width: 750px; margin: 0 auto 3rem; text-align: center;">
+          <span class="label-caps">Your Growth Potential</span>
+          <h2 class="headline-lg" style="margin: 0.75rem 0 1rem;">
+            What Is Your Compensation Gap Costing You?
+          </h2>
+          <p class="body-lg">
+            Most professionals leave $100,000 to $400,000+ on the table annually by not strategically managing their career trajectory. See your potential upside.
+          </p>
+        </div>
+
+        <div id="comp-calculator" class="calculator-box" style="max-width: 980px; margin: 0 auto;">
+          <div class="calculator-grid">
+            <div>
+              <div class="calc-slider-group">
+                <div class="calc-slider-header">
+                  <label class="form-label" for="calc-current-comp">Current Total Annual Compensation</label>
+                  <span id="display-current-comp" class="calc-slider-val">$150,000</span>
+                </div>
+                <input type="range" id="calc-current-comp" class="calc-range" min="80000" max="600000" step="10000" value="150000">
+                <div class="flex-between body-sm" style="margin-top: 0.35rem;">
+                  <span>$80,000</span><span>$600,000+</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <label class="form-label" for="calc-target-level">Target Role Level</label>
+                <select id="calc-target-level" class="form-select">
+                  <option value="director">Senior Manager / Director</option>
+                  <option value="senior-director" selected>Senior Director / Head of Function</option>
+                  <option value="vp">Vice President</option>
+                  <option value="svp">Senior VP / Executive VP</option>
+                  <option value="csuite">C-Suite / Business Owner</option>
+                </select>
+              </div>
+
+              <div class="calc-slider-group">
+                <div class="calc-slider-header">
+                  <label class="form-label" for="calc-years-band">Years at Current Level</label>
+                  <span id="display-years-band" class="calc-slider-val">2 Years</span>
+                </div>
+                <input type="range" id="calc-years-band" class="calc-range" min="1" max="6" step="1" value="2">
+                <div class="flex-between body-sm" style="margin-top: 0.35rem;">
+                  <span>1 Year</span><span>6+ Years</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-output-panel">
+              <div>
+                <span class="label-caps" style="color: var(--brand-accent-gold);">Estimated Annual Compensation Gap</span>
+                <div id="output-annual-gap" class="calc-highlight-metric">$330,000</div>
+                <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1.5rem;">
+                  The gap between your current package and the upper-quartile benchmark for your target role.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--bg-dark-border);">
+                  <div class="flex-between">
+                    <span class="body-sm" style="color: var(--text-inverse-muted);">Target Market Benchmark</span>
+                    <strong id="output-target-package" style="color: var(--text-inverse);">$480,000</strong>
+                  </div>
+                  <div class="flex-between">
+                    <span class="body-sm" style="color: var(--text-inverse-muted);">3-Year Opportunity Cost</span>
+                    <strong id="output-three-year-lift" class="text-gold">$1,040,000</strong>
+                  </div>
+                  <div class="flex-between">
+                    <span class="body-sm" style="color: var(--text-inverse-muted);">Coaching ROI Estimate</span>
+                    <strong id="output-roi-multiplier" class="text-emerald">22x ROI</strong>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 2rem;">
+                <a href="apply.html" class="btn btn-gold" style="width: 100%;">
+                  <span>Close Your Gap with Gagan</span>
+                  <span class="icon">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT TESTIMONIALS / IMPACT -->
+    <section class="section">
+      <div class="container">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+          <div>
+            <span class="label-caps">Client Transformations</span>
+            <h2 class="headline-lg" style="margin-top: 0.5rem;">Real People, Real Breakthroughs</h2>
+          </div>
+          <a href="case-studies.html" class="btn btn-secondary">View All Success Stories</a>
+        </div>
+
+        <div class="grid-2">
+          <div class="card-editorial">
+            <div class="flex-between" style="margin-bottom: 1rem;">
+              <span class="badge badge-emerald">Promoted to Director</span>
+              <span class="body-sm" style="font-weight: 600;">Healthcare, Chicago</span>
+            </div>
+            <p class="editorial-quote" style="margin-bottom: 1.25rem;">
+              "Gagan helped me see that I was playing small out of fear. Within 6 months I had the confidence to go for the Director role I'd been avoiding, and I got it. My life looks completely different now."
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+              <div>
+                <h4 style="font-size: 1rem; color: var(--brand-primary);">Priya T.</h4>
+                <p class="body-sm">Operations Manager &rarr; Director of Operations</p>
+              </div>
+              <span class="badge badge-dark">Career Coaching</span>
+            </div>
+          </div>
+
+          <div class="card-editorial">
+            <div class="flex-between" style="margin-bottom: 1rem;">
+              <span class="badge badge-emerald">Business Launched</span>
+              <span class="body-sm" style="font-weight: 600;">Tech Industry, Dallas</span>
+            </div>
+            <p class="editorial-quote" style="margin-bottom: 1.25rem;">
+              "I'd been 'thinking about' starting my consultancy for 4 years. Gagan cut through my mental noise in 3 sessions. We built a go-to-market plan and I had my first 2 paying clients within 60 days."
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+              <div>
+                <h4 style="font-size: 1rem; color: var(--brand-primary);">Rakesh M.</h4>
+                <p class="body-sm">IT Program Manager &rarr; Independent Tech Consultant</p>
+              </div>
+              <span class="badge badge-dark">Entrepreneurship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COACHING APPROACHES -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="max-width: 750px; margin: 0 auto 3rem; text-align: center;">
+          <span class="label-caps">The Leap Limitless Method</span>
+          <h2 class="headline-lg" style="margin: 0.75rem 0 1rem;">
+            How I Work With You
+          </h2>
+          <p class="body-lg">A structured yet deeply personalized approach grounded in 20+ years of leadership experience and ICF-certified coaching frameworks.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card-editorial" style="text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--brand-accent-gold-light); border: 1px solid var(--brand-accent-gold-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <span class="icon text-gold" style="font-size: 1.5rem;">search</span>
+            </div>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">1. Diagnose &amp; Clarify</h3>
+            <p class="body-md">We start with deep discovery to identify what is really holding you back, where your leverage lies, and what success genuinely means for you.</p>
+          </div>
+
+          <div class="card-editorial" style="text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--brand-accent-gold-light); border: 1px solid var(--brand-accent-gold-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <span class="icon text-gold" style="font-size: 1.5rem;">map</span>
+            </div>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">2. Strategize &amp; Plan</h3>
+            <p class="body-md">Together we build a practical, achievable roadmap with clear milestones, accountability structures, and decision frameworks tailored to your context.</p>
+          </div>
+
+          <div class="card-editorial" style="text-align: center;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--brand-accent-gold-light); border: 1px solid var(--brand-accent-gold-border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <span class="icon text-gold" style="font-size: 1.5rem;">rocket_launch</span>
+            </div>
+            <h3 class="headline-sm" style="margin-bottom: 0.75rem;">3. Execute &amp; Grow</h3>
+            <p class="body-md">I walk alongside you as you implement, offering real-time guidance, course-correcting when needed, and celebrating real breakthroughs along the way.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-dark" style="text-align: center;">
+      <div class="container-narrow">
+        <span class="badge badge-gold" style="margin-bottom: 1.25rem;">Let's Talk</span>
+        <h2 class="display-title" style="margin-bottom: 1.25rem;">
+          Your Next Chapter Starts with One Conversation.
+        </h2>
+        <p class="body-lg" style="margin: 0 auto 2.5rem; max-width: 650px;">
+          Book a free, no-pressure 30-minute discovery call with Gagan. We'll identify your biggest opportunity for growth and explore whether coaching together is the right fit.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="apply.html" class="btn btn-gold btn-lg">
+            <span>Book Your Free Discovery Call</span>
+            <span class="icon">arrow_forward</span>
+          </a>
+          <a href="about.html" class="btn btn-outline-gold btn-lg">
+            <span>Learn More About Gagan</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="assets/images/logo.svg" alt="Leap Limitless">
+            <span class="brand-logo-name" style="color: var(--text-inverse);">Leap Limitless</span>
+          </div>
+          <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1.5rem; max-width: 320px;">
+            Executive, career, and life coaching by Gagan Sharma, ICF-ACC. Helping professionals grow, lead, and thrive, no matter where they started.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-dark">ICF-ACC Certified</span>
+            <span class="badge badge-dark">20+ Years Leadership</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="programs.html" class="footer-link">Coaching Programs</a>
+            <a href="#organizations" class="footer-link">For Organizations</a>
+            <a href="immigrant-playbook.html" class="footer-link">Immigrant Playbook</a>
+            <a href="diagnostic.html" class="footer-link">Free Self-Assessment</a>
+            <a href="case-studies.html" class="footer-link">Success Stories</a>
+            <a href="about.html" class="footer-link">About Gagan</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Focus Areas</h4>
+          <div class="footer-links">
+            <a href="programs.html#career" class="footer-link">Career Growth &amp; Acceleration</a>
+            <a href="programs.html#executive" class="footer-link">Executive Leadership</a>
+            <a href="immigrant-playbook.html" class="footer-link">Immigrant Professional Growth</a>
+            <a href="programs.html#pivot" class="footer-link">Mid-Life Career Pivot</a>
+            <a href="programs.html#business" class="footer-link">Business &amp; Entrepreneurship</a>
+            <a href="programs.html#workplace" class="footer-link">Workplace Relationships</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1rem;">
+            Join professionals receiving Gagan's monthly insights on career growth, leadership, and winning at work.
+          </p>
+          <form class="briefing-form" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <input type="email" placeholder="your@email.com" class="form-input" style="background: var(--bg-dark-card); color: var(--text-inverse); border-color: var(--border-dark);" required>
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe for Free Insights</button>
+          </form>
+          <div style="margin-top: 1rem;">
+            <a href="https://www.linkedin.com/in/gaganonline/" target="_blank" rel="noopener noreferrer" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span class="icon" style="font-size: 1.1rem;">link</span> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gagan Sharma &bull; Leap Limitless Coaching. All rights reserved. leaplimitless.com</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/diagnostic.js"></script>
+  <script src="js/calculator.js"></script>
 </body>
 </html>
