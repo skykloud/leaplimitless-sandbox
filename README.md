@@ -6,14 +6,29 @@ Built with modern semantic HTML5, Vanilla CSS, and lightweight JavaScript. Hoste
 
 ---
 
+## Live Environments & URLs
+
+- **Live Staging / Sandbox Preview:** [https://leaplimitless.com/sandbox/](https://leaplimitless.com/sandbox/)
+  - Always accessible online on desktop, tablet, and mobile.
+  - Automatically synced when changes are staged.
+- **Dedicated Subdomain Option:** [https://sandbox.leaplimitless.com](https://sandbox.leaplimitless.com)
+  - Pre-configured on GitHub Pages (`skykloud/leaplimitless-sandbox`).
+  - Active once a CNAME DNS record is added in Cloudflare: `sandbox` -> `skykloud.github.io`.
+- **Production Live Website:** [https://leaplimitless.com](https://leaplimitless.com)
+  - Current status: Ready for promotion whenever you decide to publish.
+- **Local Development Server:** `http://localhost:8080/`
+  - Start command: `python3 -m http.server 8080`
+
+---
+
 ## Branching & Release Workflow
 
 This repository uses a two-branch workflow to separate daily development/sandbox work from the live production site:
 
 ```
-[ sandbox branch ]  ---> Daily development, draft copy, experiments & local testing
+[ sandbox branch ]  ---> Daily development, draft copy, experiments & staging
         |
-        |  (promote when ready)
+        |  (promote when ready via ./promote.sh)
         v
 [  main branch   ]  ---> Production / Published site (auto-deploys to leaplimitless.com)
 ```
@@ -31,15 +46,13 @@ git checkout sandbox
 git add .
 git commit -m "Describe your updates"
 
-# Push to GitHub to back up your sandbox
+# Push to GitHub (automatically syncs both repositories)
 git push origin sandbox
 ```
 
-### 2. Local Preview
-Preview your site locally at `http://localhost:8080/`:
-```bash
-python3 -m http.server 8080
-```
+### 2. Local & Staging Preview
+- **Local Preview:** `http://localhost:8080/`
+- **Online Sandbox Preview:** `https://leaplimitless.com/sandbox/`
 
 ### 3. Promoting Changes to the Live Website
 When your changes in `sandbox` are verified and ready to be published to `leaplimitless.com`:

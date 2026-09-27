@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Leap Limitless - Promote Sandbox to Published (Production / main)
+# Leap Limitless: Promote Sandbox to Published (Production / main)
 # ==============================================================================
 set -e
 
@@ -38,19 +38,33 @@ git pull origin main --ff-only || true
 
 # 4. Merge sandbox into main
 echo "🔀 Merging 'sandbox' into 'main'..."
-git merge sandbox -m "Promote: Release sandbox changes to live site"
+git merge sandbox -m "Promote: Release sandbox changes to live site" -X theirs || git merge sandbox -m "Promote: Release sandbox changes to live site"
 
-# 5. Push main to trigger live GitHub Pages publication
+# 5. Sync sandbox folder on main
+echo "🔄 Updating /sandbox directory on main..."
+mkdir -p sandbox
+git archive sandbox | tar -x -C sandbox
+rm -f sandbox/CNAME
+
+# 6. Ensure production CNAME is always leaplimitless.com
+echo "leaplimitless.com" > CNAME
+git add .
+if ! git diff-index --quiet HEAD --; then
+  git commit -m "Promote: Finalize live release for leaplimitless.com"
+fi
+
+# 7. Push main to trigger live GitHub Pages publication
 echo "🚀 Pushing 'main' to GitHub (Publishing live to leaplimitless.com)..."
 git push origin main
 
-# 6. Switch back to sandbox for ongoing work
+# 8. Switch back to sandbox for ongoing work
 echo "↩️  Switching back to 'sandbox' branch for ongoing work..."
 git checkout sandbox
 
 echo ""
 echo "=========================================================="
 echo "  ✅ Promotion complete! Live site updated successfully.  "
-echo "  👉 Domain: https://leaplimitless.com                    "
+echo "  👉 Production Domain: https://leaplimitless.com         "
+echo "  👉 Staging Preview:   https://leaplimitless.com/sandbox/ "
 echo "  🌿 You are now back on branch: 'sandbox'                 "
 echo "=========================================================="
