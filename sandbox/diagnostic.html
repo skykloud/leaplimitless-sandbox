@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Ceiling & Leadership Diagnostic | Leap Limitless</title>
+  <meta name="description" content="Take our 60-second interactive diagnostic to audit your Executive Gravitas, Cultural Fluency, and Compensation Leverage. Receive a personalized roadmap.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="announcement-bar">
+    <span class="pulse-dot"></span>
+    <span>Confidential Executive Audit &bull; Instant Strategic Archetype Analysis</span>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Leap Limitless Home">
+        <img src="assets/images/logo.svg" alt="Leap Limitless Crest">
+        <div class="brand-logo-text">
+          <span class="brand-logo-name">Leap Limitless</span>
+          <span class="brand-logo-tag">Executive & Immigrant Advisory</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="programs.html" class="nav-link">Coaching Programs</a>
+        <a href="programs.html#organizations" class="nav-link">For Organizations</a>
+        <a href="immigrant-playbook.html" class="nav-link">Immigrant Playbook</a>
+        <a href="diagnostic.html" class="nav-link active">Self-Assessment</a>
+        <a href="case-studies.html" class="nav-link">Success Stories</a>
+        <a href="about.html" class="nav-link">About Gagan</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Apply for Consultation</span>
+          <span class="icon">arrow_forward</span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open Mobile Menu">
+          <span class="icon">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <img src="assets/images/logo.svg" alt="Leap Limitless">
+          <span class="brand-logo-name">Leap Limitless</span>
+        </div>
+        <button id="drawer-close" aria-label="Close Menu">
+          <span class="icon" style="font-size: 1.75rem;">close</span>
+        </button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="drawer-link">Home <span class="icon">chevron_right</span></a>
+        <a href="programs.html" class="drawer-link">Coaching Programs <span class="icon">chevron_right</span></a>
+        <a href="programs.html#organizations" class="drawer-link">For Organizations <span class="icon">chevron_right</span></a>
+        <a href="immigrant-playbook.html" class="drawer-link">Immigrant Playbook <span class="icon">chevron_right</span></a>
+        <a href="diagnostic.html" class="drawer-link">Self-Assessment <span class="icon">chevron_right</span></a>
+        <a href="case-studies.html" class="drawer-link">Success Stories <span class="icon">chevron_right</span></a>
+        <a href="about.html" class="drawer-link">About Gagan <span class="icon">chevron_right</span></a>
+        <a href="apply.html" class="drawer-link">Book a Call <span class="icon">chevron_right</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main style="padding: 3.5rem 0 5rem;">
+    <div class="container-narrow">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="badge badge-gold" style="margin-bottom: 0.75rem;">Interactive Assessment</span>
+        <h1 class="headline-lg" style="margin-bottom: 0.75rem;">The Career Ceiling &amp; Leadership Diagnostic</h1>
+        <p class="body-md" style="max-width: 600px; margin: 0 auto;">
+          Identify why your technical excellence isn't converting into executive visibility, board promotions, and upper-quartile compensation.
+        </p>
+      </div>
+
+      <!-- Diagnostic Engine -->
+      <div id="career-diagnostic" class="diagnostic-container">
+        <div class="diagnostic-header">
+          <div>
+            <span class="label-caps" style="color: var(--brand-accent-gold-light);">Executive Evaluation</span>
+            <h3 style="font-size: 1.25rem; color: var(--text-inverse); margin-top: 0.25rem;">
+              Question <span id="current-step-num">1</span> of 6
+            </h3>
+          </div>
+          <div class="badge badge-gold">100% Confidential</div>
+        </div>
+
+        <div class="diagnostic-progress-bar">
+          <div class="diagnostic-progress-fill"></div>
+        </div>
+
+        <div class="diagnostic-body">
+          <div id="diagnostic-questions-wrapper">
+            <!-- STEP 1 -->
+            <div class="diagnostic-step active" data-step="0">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 1: Visibility vs Execution</span>
+              </div>
+              <h4 class="diagnostic-question-title">How do you approach sharing your accomplishments?</h4>
+              <p class="diagnostic-question-desc">In many global cultures, self-promotion feels boastful. In Western executive suites, your visibility determines your opportunities.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I let my results speak for themselves</h5>
+                    <p>I rarely bring up my work proactively; I assume my manager and peers notice my technical excellence.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I share updates only during annual reviews</h5>
+                    <p>I feel awkward bringing up achievements casually, so I reserve advocacy for formal review cycles.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I strategically broadcast business impact</h5>
+                    <p>I regularly tie my team's output to enterprise revenue and ensure C-suite stakeholders hear the story.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="diagnostic-step" data-step="1">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 2: Executive Presence & Voice</span>
+              </div>
+              <h4 class="diagnostic-question-title">How comfortable are you in high-stakes boardroom meetings?</h4>
+              <p class="diagnostic-question-desc">Navigating accent consciousness, deference to authority, and interrupting senior leaders strategically.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I wait to be invited to speak</h5>
+                    <p>I focus on taking notes and only share opinions if directly asked by the meeting lead.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I speak, but I over-explain technical minutiae</h5>
+                    <p>I worry about being questioned, so I dive into defensive details rather than leading with strategic conclusions.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I frame the strategic synthesis and shape the room</h5>
+                    <p>I lead with executive conclusions, synthesize conflicting viewpoints, and command authority effortlessly.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="diagnostic-step" data-step="2">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 3: Cultural Deference & Hierarchy</span>
+              </div>
+              <h4 class="diagnostic-question-title">When your VP or Executive makes a strategic mistake, how do you respond?</h4>
+              <p class="diagnostic-question-desc">Deference to elders and superiors is deeply rooted in many immigrant cultures, but top executives need peers who challenge them constructively.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I stay quiet to avoid disrespecting authority</h5>
+                    <p>It feels culturally inappropriate to contradict a superior in public or private.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I hint at the issue gently in an email</h5>
+                    <p>I soften the feedback so much that the leadership urgency is lost.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I schedule a 1:1 and frame an alternative risk mitigation</h5>
+                    <p>I speak as a trusted peer and strategic partner, elevating both of our positions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="diagnostic-step" data-step="3">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 4: Sponsorship & Alliance Building</span>
+              </div>
+              <h4 class="diagnostic-question-title">Do you have executive sponsors advocating for you behind closed doors?</h4>
+              <p class="diagnostic-question-desc">Mentors advise you; sponsors spend political capital to get you promoted when you are not in the room.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>No, I rely strictly on my direct manager</h5>
+                    <p>I don't have relationships with senior leaders outside my immediate reporting line.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I have mentors, but no true sponsors</h5>
+                    <p>I receive advice and encouragement, but nobody actively puts their reputation on the line for my promotion.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>Yes, I have multiple active executive sponsors</h5>
+                    <p>Senior VP and C-level leaders actively pull me into unlisted leadership opportunities.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="diagnostic-step" data-step="4">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 5: Compensation & Scarcity Mindset</span>
+              </div>
+              <h4 class="diagnostic-question-title">How do you negotiate compensation offers or annual raises?</h4>
+              <p class="diagnostic-question-desc">Navigating the immigrant instinct to be "grateful for the opportunity" vs demanding upper-quartile market equity.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I accept the initial offer gratefully</h5>
+                    <p>I feel pushback might make them revoke the offer or view me as ungrateful.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I ask politely for 5% to 10% more</h5>
+                    <p>I negotiate slightly on base salary, but leave executive equity and sign-on bonuses untouched.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>I leverage multi-tier executive offer counter-strategies</h5>
+                    <p>I negotiate sign-on bonuses, accelerated equity vesting, and performance severance packages aggressively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 6 -->
+            <div class="diagnostic-step" data-step="5">
+              <div class="diagnostic-question-meta">
+                <span class="badge badge-outline">Pillar 6: Long-Term Leadership Horizon</span>
+              </div>
+              <h4 class="diagnostic-question-title">What is your ultimate career trajectory goal?</h4>
+              <p class="diagnostic-question-desc">Claiming your seat at the highest levels of global enterprise and public governance.</p>
+              <div class="diagnostic-options">
+                <div class="diagnostic-option-card" data-gravitas="1" data-cultural="1" data-comp="1">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>Senior Director / Principal Contributor</h5>
+                    <p>Maintain high compensation while managing a stable team.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="2" data-cultural="2" data-comp="2">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>Vice President / Head of Global Function</h5>
+                    <p>Own large enterprise P&amp;L and orchestrate global organizational strategy.</p>
+                  </div>
+                </div>
+                <div class="diagnostic-option-card" data-gravitas="3" data-cultural="3" data-comp="3">
+                  <div class="option-radio"></div>
+                  <div class="option-text">
+                    <h5>C-Suite Officer &amp; Corporate Board Director</h5>
+                    <p>Drive enterprise governance, shareholder value, and global transformation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="diagnostic-footer">
+              <button type="button" id="diag-prev-btn" class="btn btn-ghost btn-sm" style="visibility: hidden;">
+                <span class="icon">arrow_back</span>
+                <span>Previous</span>
+              </button>
+              <button type="button" id="diag-next-btn" class="btn btn-primary" disabled>
+                <span>Continue</span>
+                <span class="icon">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div id="diagnostic-results" class="diagnostic-results">
+            <div class="results-badge-wrapper">
+              Diagnostic Complete &bull; Profile Generated
+            </div>
+            <h3 id="archetype-title" class="headline-md" style="margin-bottom: 0.75rem; color: var(--brand-primary);">
+              The Undervalued Powerhouse
+            </h3>
+            <p id="archetype-desc" class="body-md" style="max-width: 620px; margin: 0 auto 2rem;">
+              Calculating customized strategic profile...
+            </p>
+
+            <div class="results-score-grid">
+              <div class="score-card">
+                <div class="flex-between">
+                  <span class="label-caps">Executive Gravitas</span>
+                  <strong id="num-gravitas" style="color: var(--brand-primary);">72%</strong>
+                </div>
+                <div class="score-bar-bg">
+                  <div id="score-gravitas" class="score-bar-value" style="width: 72%;"></div>
+                </div>
+                <p class="body-sm" style="margin-top: 0.75rem;">Room command, authority framing, and boardroom presence.</p>
+              </div>
+
+              <div class="score-card">
+                <div class="flex-between">
+                  <span class="label-caps">Cultural Fluency</span>
+                  <strong id="num-cultural" style="color: var(--brand-accent-gold-dark);">58%</strong>
+                </div>
+                <div class="score-bar-bg">
+                  <div id="score-cultural" class="score-bar-value" style="width: 58%; background: var(--brand-accent-gold);"></div>
+                </div>
+                <p class="body-sm" style="margin-top: 0.75rem;">Decoding unwritten corporate rules, political alliances, and advocacy.</p>
+              </div>
+
+              <div class="score-card">
+                <div class="flex-between">
+                  <span class="label-caps">Compensation Leverage</span>
+                  <strong id="num-comp" style="color: var(--brand-emerald-dark);">44%</strong>
+                </div>
+                <div class="score-bar-bg">
+                  <div id="score-comp" class="score-bar-value" style="width: 44%; background: var(--brand-emerald);"></div>
+                </div>
+                <p class="body-sm" style="margin-top: 0.75rem;">Capturing full market value, equity packages, and sign-on arbitrage.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 1.5rem; text-align: left; margin-bottom: 2rem;">
+              <h4 style="font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 0.5rem;">Recommended Strategic Action Plan:</h4>
+              <ul style="display: flex; flex-direction: column; gap: 0.5rem;" class="body-sm">
+                <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Reposition your narrative from technical executor to strategic profit driver.</li>
+                <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Replace modest deference with authoritative consensus-building in executive forums.</li>
+                <li style="display: flex; gap: 0.5rem;"><span class="icon text-gold" style="font-size: 1.1rem;">check</span> Target an immediate 35% to 55% compensation correction via structured sponsor activation.</li>
+              </ul>
+            </div>
+
+            <a href="apply.html" class="btn btn-primary btn-lg">
+              <span>Book 30-Min Diagnostic Review Session</span>
+              <span class="icon">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <p>&copy; 2026 Leap Limitless Advisory Group. All rights reserved. leaplimitless.com</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="immigrant-playbook.html" class="footer-link">Playbook</a>
+          <a href="programs.html" class="footer-link">Programs</a>
+          <a href="apply.html" class="footer-link">Apply</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/diagnostic.js"></script>
+</body>
+</html>
