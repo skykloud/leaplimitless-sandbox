@@ -1,63 +1,107 @@
 /**
  * LEAP LIMITLESS - CONFIDENTIAL CONSULTATION & CALENDAR SCHEDULER
- * Handles multi-step executive intake, calendar slot selection, and booking confirmation
+ * Handles executive intake validation, briefing summary preservation,
+ * and direct routing to Microsoft Bookings live calendar.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('consultation-form');
-  const calendarSlots = document.querySelectorAll('.cal-slot.available');
-  const timeButtons = document.querySelectorAll('.time-btn');
-  const selectedDateDisplay = document.getElementById('selected-date-display');
-  const selectedTimeDisplay = document.getElementById('selected-time-display');
   const bookingSuccessModal = document.getElementById('booking-success-modal');
+  const MS_BOOKING_URL = 'https://bookings.cloud.microsoft/bookwithme/user/bc60b37ec49444039ed7051b8ca224af@skykloud.com/meetingtype/kYf9Fko4O0ycZpLcqVgPfQ2?anonymous&ismsaljsauthenabled&ep=mcard';
 
-  let chosenDate = 'Thursday, Oct 15';
-  let chosenTime = '11:00 AM EST';
-
-  calendarSlots.forEach(slot => {
-    slot.addEventListener('click', () => {
-      calendarSlots.forEach(s => s.classList.remove('selected'));
-      slot.classList.add('selected');
-      const dateVal = slot.getAttribute('data-date');
-      if (dateVal) chosenDate = dateVal;
-      if (selectedDateDisplay) selectedDateDisplay.innerText = chosenDate;
+  // Wire up close modal handlers
+  document.querySelectorAll('[data-close-modal]').forEach(el => {
+    el.addEventListener('click', () => {
+      if (bookingSuccessModal) {
+        bookingSuccessModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   });
 
-  timeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      timeButtons.forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      const timeVal = btn.getAttribute('data-time');
-      if (timeVal) chosenTime = timeVal;
-      if (selectedTimeDisplay) selectedTimeDisplay.innerText = chosenTime;
+  if (bookingSuccessModal) {
+    bookingSuccessModal.addEventListener('click', (e) => {
+      if (e.target === bookingSuccessModal) {
+        bookingSuccessModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
-  });
+  }
 
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Securing Confidential Booking... <span class="icon">hourglass_empty</span>';
+      const submitBtn = document.getElementById('consultation-submit-btn') || form.querySelector('button[type="submit"]');
+      const originalHtml = submitBtn.innerHTML;
+
+      // Extract form fields
+      const fullName = document.getElementById('full-name')?.value?.trim() || '';
+      const currentTitle = document.getElementById('current-title')?.value?.trim() || '';
+      const currentOrg = document.getElementById('current-org')?.value?.trim() || '';
+      const workEmail = document.getElementById('work-email')?.value?.trim() || '';
+      const phoneNumber = document.getElementById('phone-number')?.value?.trim() || '';
+      const challengeSelect = document.getElementById('strategic-challenge');
+      const strategicChallenge = challengeSelect ? challengeSelect.options[challengeSelect.selectedIndex]?.text : '';
+      const executiveNotes = document.getElementById('executive-notes')?.value?.trim() || '';
+
+      // Button feedback
+      submitBtn.innerHTML = '<span>Saving Briefing &amp; Opening Calendar...</span> <span class="icon">hourglass_top</span>';
       submitBtn.setAttribute('disabled', 'true');
 
+      // Prepare mailto backup payload
+      const mailSubject = encodeURIComponent(`[Candidate Briefing] ${fullName} - ${currentOrg}`);
+      const mailBody = encodeURIComponent(
+        `CONFIDENTIAL EXECUTIVE CANDIDATE BRIEFING\n` +
+        `Advisor: Gagan Sharma, ICF-ACC (coach@skykloud.com)\n\n` +
+        `Candidate Name: ${fullName}\n` +
+        `Current Role: ${currentTitle}\n` +
+        `Organization: ${currentOrg}\n` +
+        `Email: ${workEmail}\n` +
+        `Mobile Phone: ${phoneNumber}\n` +
+        `Strategic Priority: ${strategicChallenge}\n\n` +
+        `Objective & Context:\n${executiveNotes || 'None provided'}\n\n` +
+        `Submitted via leaplimitless.com intake form.`
+      );
+      const mailtoUrl = `mailto:coach@skykloud.com?subject=${mailSubject}&body=${mailBody}`;
+
       setTimeout(() => {
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML = originalHtml;
         submitBtn.removeAttribute('disabled');
 
         // Populate modal data
-        const modalDate = document.getElementById('modal-confirmed-date');
-        const modalTime = document.getElementById('modal-confirmed-time');
-        if (modalDate) modalDate.innerText = chosenDate;
-        if (modalTime) modalTime.innerText = chosenTime;
+        const modalClientName = document.getElementById('modal-client-name');
+        const modalClientFocus = document.getElementById('modal-client-focus');
+        const emailBriefBtn = document.getElementById('modal-email-brief-btn');
+        const launchCalendarBtn = document.getElementById('modal-launch-calendar-btn');
 
+        if (modalClientName && fullName) {
+          modalClientName.textContent = fullName.split(' ')[0] || fullName;
+        }
+        if (modalClientFocus && strategicChallenge) {
+          const shortFocus = strategicChallenge.split(':')[0] || strategicChallenge;
+          modalClientFocus.textContent = shortFocus;
+        }
+        if (emailBriefBtn) {
+          emailBriefBtn.setAttribute('href', mailtoUrl);
+        }
+        if (launchCalendarBtn) {
+          launchCalendarBtn.setAttribute('href', MS_BOOKING_URL);
+        }
+
+        // Open modal
         if (bookingSuccessModal) {
           bookingSuccessModal.classList.add('open');
           document.body.style.overflow = 'hidden';
         }
-      }, 1200);
+
+        // Open live Microsoft Bookings calendar in a new tab
+        try {
+          window.open(MS_BOOKING_URL, '_blank', 'noopener,noreferrer');
+        } catch (err) {
+          console.warn('Browser popup blocked auto-open, user can click modal button:', err);
+        }
+      }, 700);
     });
   }
 });
