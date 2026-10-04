@@ -175,55 +175,25 @@
               </select>
             </div>
 
-            <!-- Interactive Calendar Selection -->
-            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
-              <label class="form-label" style="margin-bottom: 0.5rem; display: block;">Select Preferred Strategy Consultation Date</label>
-              <div class="calendar-grid">
-                <span class="cal-day-label">M</span>
-                <span class="cal-day-label">T</span>
-                <span class="cal-day-label">W</span>
-                <span class="cal-day-label">T</span>
-                <span class="cal-day-label">F</span>
-                <span class="cal-day-label">S</span>
-                <span class="cal-day-label">S</span>
-
-                <div class="cal-slot disabled">12</div>
-                <div class="cal-slot disabled">13</div>
-                <div class="cal-slot available selected" data-date="Wednesday, Oct 14">14</div>
-                <div class="cal-slot available" data-date="Thursday, Oct 15">15</div>
-                <div class="cal-slot available" data-date="Friday, Oct 16">16</div>
-                <div class="cal-slot disabled">17</div>
-                <div class="cal-slot disabled">18</div>
-
-                <div class="cal-slot available" data-date="Monday, Oct 19">19</div>
-                <div class="cal-slot available" data-date="Tuesday, Oct 20">20</div>
-                <div class="cal-slot available" data-date="Wednesday, Oct 21">21</div>
-                <div class="cal-slot available" data-date="Thursday, Oct 22">22</div>
-                <div class="cal-slot available" data-date="Friday, Oct 23">23</div>
-                <div class="cal-slot disabled">24</div>
-                <div class="cal-slot disabled">25</div>
-              </div>
-
-              <div style="margin-top: 1rem;">
-                <label class="form-label" style="margin-bottom: 0.5rem; display: block;">Select Time Slot (EST):</label>
-                <div class="time-slots-grid">
-                  <button type="button" class="time-btn selected" data-time="11:00 AM EST">11:00 AM EST</button>
-                  <button type="button" class="time-btn" data-time="1:30 PM EST">1:30 PM EST</button>
-                  <button type="button" class="time-btn" data-time="4:00 PM EST">4:00 PM EST</button>
-                </div>
-              </div>
-
-              <div style="background: var(--bg-canvas-alt); border-radius: var(--radius-xs); padding: 0.75rem 1rem; margin-top: 1rem; display: flex; justify-content: space-between; font-size: 0.8125rem;">
-                <span>Selected: <strong id="selected-date-display">Wednesday, Oct 14</strong></span>
-                <span>Time: <strong id="selected-time-display">11:00 AM EST</strong></span>
-              </div>
+            <!-- Primary Objective or Context -->
+            <div class="form-group">
+              <label class="form-label" for="executive-notes">Primary Objective or Context for the Call (Optional)</label>
+              <textarea id="executive-notes" class="form-textarea" rows="3" placeholder="Briefly share where you feel stuck, what decision you are facing, or what outcome you want to achieve..."></textarea>
             </div>
 
             <div style="margin-top: 2rem;">
-              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                <span>Submit Confidential Briefing</span>
-                <span class="icon">lock</span>
+              <button type="submit" id="consultation-submit-btn" class="btn btn-primary btn-lg" style="width: 100%;">
+                <span>Submit Confidential Briefing &amp; Choose Time</span>
+                <span class="icon">calendar_today</span>
               </button>
+              <p class="body-sm" style="text-align: center; margin-top: 0.85rem; color: var(--text-tertiary);">
+                Protected under mutual non-disclosure &bull; Next step opens Gagan's live Microsoft 365 calendar
+              </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-light); font-size: 0.85rem; color: var(--text-secondary);">
+              <span>Returning client or short on time? </span>
+              <a href="https://bookings.cloud.microsoft/bookwithme/user/bc60b37ec49444039ed7051b8ca224af@skykloud.com/meetingtype/kYf9Fko4O0ycZpLcqVgPfQ2?anonymous&amp;ismsaljsauthenabled&amp;ep=mcard" target="_blank" rel="noopener noreferrer" style="color: var(--brand-accent-gold-dark); font-weight: 600; text-decoration: underline;">Open live calendar directly</a>
             </div>
           </form>
         </div>
@@ -232,37 +202,52 @@
     </div>
   </main>
 
-  <!-- BOOKING CONFIRMATION MODAL -->
+  <!-- BOOKING CONFIRMATION & CALENDAR LAUNCH MODAL -->
   <div id="booking-success-modal" class="modal-backdrop">
-    <div class="modal-content" style="text-align: center;">
-      <button class="modal-close" data-close-modal>&times;</button>
+    <div class="modal-content" style="text-align: center; max-width: 580px;">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
       <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--brand-emerald-subtle); color: var(--brand-emerald-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
         <span class="icon" style="font-size: 2.25rem;">verified</span>
       </div>
-      <span class="badge badge-gold" style="margin-bottom: 0.5rem;">Intake Reserved</span>
-      <h3 class="headline-md" style="margin-bottom: 0.75rem;">Confidential Consultation Requested</h3>
-      <p class="body-md" style="margin-bottom: 1.5rem;">
-        Your candidate brief has been received under mutual non-disclosure. Gagan Sharma will review your materials and send a direct calendar invite.
+      <span class="badge badge-gold" style="margin-bottom: 0.5rem;">Step 1 Complete &bull; Briefing Recorded</span>
+      <h3 class="headline-md" style="margin-bottom: 0.75rem;">Intake Received &bull; Ready for Scheduling</h3>
+      <p class="body-md" style="margin-bottom: 1.25rem; color: var(--text-secondary);">
+        Thank you, <strong id="modal-client-name">Candidate</strong>. Your brief has been securely logged under mutual non-disclosure. Please select your preferred 30-minute consultation on Gagan Sharma's live calendar.
       </p>
 
       <div style="background: var(--bg-canvas-alt); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 1.25rem; text-align: left; margin-bottom: 1.5rem;" class="body-sm">
         <div class="flex-between" style="margin-bottom: 0.5rem;">
-          <span>Target Date:</span>
-          <strong id="modal-confirmed-date">Wednesday, Oct 14</strong>
+          <span>Target Service:</span>
+          <strong>30-Minute Confidential Discovery Call</strong>
         </div>
         <div class="flex-between" style="margin-bottom: 0.5rem;">
-          <span>Target Time:</span>
-          <strong id="modal-confirmed-time">11:00 AM EST</strong>
+          <span>Advisory Format:</span>
+          <strong>Private Microsoft Teams / Online Video Meeting</strong>
+        </div>
+        <div class="flex-between" style="margin-bottom: 0.5rem;">
+          <span>Official Host:</span>
+          <strong>Gagan Sharma, ICF-ACC</strong>
         </div>
         <div class="flex-between">
-          <span>Advisory Format:</span>
-          <strong>Private Zoom Video Link (NDA Protected)</strong>
+          <span>Priority Focus:</span>
+          <strong id="modal-client-focus">Strategic Growth</strong>
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary" data-close-modal style="width: 100%;">
-        Return to Overview
-      </button>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <a id="modal-launch-calendar-btn" href="https://bookings.cloud.microsoft/bookwithme/user/bc60b37ec49444039ed7051b8ca224af@skykloud.com/meetingtype/kYf9Fko4O0ycZpLcqVgPfQ2?anonymous&amp;ismsaljsauthenabled&amp;ep=mcard" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg" style="width: 100%;">
+          <span>Select Date &amp; Time on Live Calendar</span>
+          <span class="icon">calendar_today</span>
+        </a>
+        <a id="modal-email-brief-btn" href="mailto:coach@skykloud.com" class="btn btn-secondary btn-sm" style="width: 100%;">
+          <span>Send Copy of Brief to coach@skykloud.com</span>
+          <span class="icon">mail</span>
+        </a>
+      </div>
+
+      <p class="body-xs" style="color: var(--text-tertiary); margin-top: 1rem; font-size: 0.78rem;">
+        Questions or need an alternate time? Call or text <a href="tel:+14127270544" style="color: var(--brand-primary); font-weight: 600;">+1.412.727.0544</a> or email <a href="mailto:coach@skykloud.com" style="color: var(--brand-primary); font-weight: 600;">coach@skykloud.com</a>.
+      </p>
     </div>
   </div>
 
