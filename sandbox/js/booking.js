@@ -28,9 +28,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Bot Protection: Honeypot & Dynamic Math CAPTCHA
+  const honeypotInput = document.getElementById('intake-hp');
+  const captchaQuestion = document.getElementById('captcha-question');
+  const captchaAnswer = document.getElementById('captcha-answer');
+  const captchaRefreshBtn = document.getElementById('captcha-refresh-btn');
+  const captchaError = document.getElementById('captcha-error');
+
+  let captchaResult = null;
+  const pageLoadTime = Date.now();
+
+  function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 9) + 2; // 2 to 10
+    const num2 = Math.floor(Math.random() * 8) + 1; // 1 to 8
+    captchaResult = num1 + num2;
+    if (captchaQuestion) {
+      captchaQuestion.textContent = `${num1} + ${num2}`;
+    }
+    if (captchaAnswer) {
+      captchaAnswer.value = '';
+      captchaAnswer.style.borderColor = '';
+    }
+    if (captchaError) {
+      captchaError.style.display = 'none';
+    }
+  }
+
+  if (captchaQuestion && captchaAnswer) {
+    generateCaptcha();
+    if (captchaRefreshBtn) {
+      captchaRefreshBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        generateCaptcha();
+        captchaAnswer.focus();
+      });
+    }
+    captchaAnswer.addEventListener('input', () => {
+      if (captchaError) {
+        captchaError.style.display = 'none';
+      }
+      captchaAnswer.style.borderColor = '';
+    });
+  }
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Bot Protection Check 1: Invisible Honeypot trap
+      if (honeypotInput && honeypotInput.value.trim() !== '') {
+        console.warn('Bot submission blocked via honeypot trap.');
+        return;
+      }
+
+      // Bot Protection Check 2: Submission velocity check (under 1.2s is automated bot)
+      if (Date.now() - pageLoadTime < 1200) {
+        console.warn('Bot submission blocked via velocity check.');
+        return;
+      }
+
+      // Bot Protection Check 3: Human Verification Math Challenge
+      if (captchaAnswer && captchaResult !== null) {
+        const userAnswer = parseInt(captchaAnswer.value.trim(), 10);
+        if (isNaN(userAnswer) || userAnswer !== captchaResult) {
+          if (captchaError) {
+            captchaError.style.display = 'block';
+          }
+          captchaAnswer.style.borderColor = '#c93b2b';
+          captchaAnswer.focus();
+          generateCaptcha();
+          return;
+        }
+      }
 
       const submitBtn = document.getElementById('consultation-submit-btn') || form.querySelector('button[type="submit"]');
       const originalHtml = submitBtn.innerHTML;
@@ -53,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const mailSubject = encodeURIComponent(`[Candidate Briefing] ${fullName} - ${currentOrg}`);
       const mailBody = encodeURIComponent(
         `CONFIDENTIAL EXECUTIVE CANDIDATE BRIEFING\n` +
-        `Advisor: Gagan Sharma, ICF-ACC (coach@skykloud.com)\n\n` +
+        `Advisor: Gagan Sharma, ICF-ACC (coach@leaplimitless.com)\n\n` +
         `Candidate Name: ${fullName}\n` +
         `Current Role: ${currentTitle}\n` +
         `Organization: ${currentOrg}\n` +
@@ -63,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `Objective & Context:\n${executiveNotes || 'None provided'}\n\n` +
         `Submitted via leaplimitless.com intake form.`
       );
-      const mailtoUrl = `mailto:coach@skykloud.com?subject=${mailSubject}&body=${mailBody}`;
+      const mailtoUrl = `mailto:coach@leaplimitless.com?subject=${mailSubject}&body=${mailBody}`;
 
       setTimeout(() => {
         submitBtn.innerHTML = originalHtml;
