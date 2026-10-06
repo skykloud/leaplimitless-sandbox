@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Bono Executive &amp; Career Coaching | Leap Limitless</title>
+  <meta name="description" content="Complimentary, high-impact 1:1 executive and career coaching with Coach Gagan, ICF-ACC. Dedicated to immigrant professionals, first-gen leaders, non-profit directors, and job seekers in transition.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/components.css?v=9">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .fellowship-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      background: var(--brand-accent-gold-light);
+      border: 1px solid var(--brand-accent-gold-border);
+      color: var(--brand-accent-gold-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pb-metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+    }
+    @media (max-width: 840px) {
+      .pb-metric-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 520px) {
+      .pb-metric-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .metric-card-light {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.35rem;
+      text-align: left;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .metric-card-light:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-accent-gold);
+    }
+    .metric-card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--brand-accent-gold-dark);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+    .metric-card-val {
+      font-size: clamp(1.4rem, 1.8vw, 1.65rem);
+      font-weight: 700;
+      color: var(--brand-primary);
+      font-family: var(--font-serif);
+      line-height: 1.15;
+      margin-bottom: 0.35rem;
+      white-space: nowrap;
+    }
+    .metric-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      line-height: 1.45;
+    }
+    .stream-card-light {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .stream-card-light:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--brand-accent-gold);
+    }
+    .stream-icon-light {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--brand-accent-gold-light);
+      color: var(--brand-accent-gold-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .commitment-check-light {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--bg-canvas-alt);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+    .commitment-check-light:hover {
+      background: var(--bg-surface);
+      border-color: var(--brand-accent-gold-border);
+    }
+    .commitment-check-light input[type="checkbox"] {
+      margin-top: 0.25rem;
+      accent-color: var(--brand-accent-gold-dark);
+      width: 17px;
+      height: 17px;
+    }
+    .pb-form-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .pb-form-input:focus {
+      outline: none;
+      border-color: var(--brand-accent-gold);
+      background: var(--bg-surface);
+      box-shadow: 0 0 0 3px rgba(197, 155, 99, 0.15);
+    }
+    .faq-card-light {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-md);
+      padding: 1.6rem 1.75rem;
+      transition: border-color var(--transition-fast);
+    }
+    .faq-card-light:hover {
+      border-color: var(--brand-accent-gold-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="announcement-bar">
+    <span class="pulse-dot"></span>
+    <span>Community Leadership Initiative &bull; Dedicated Quarterly Pro Bono Coaching Cohort</span>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Leap Limitless Coach">
+        <img src="assets/images/logo.svg" alt="Leap Limitless Coach">
+        <span class="brand-logo-name"><span>Leap Limitless</span><span>Coach</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="programs.html" class="nav-link">Coaching Programs</a>
+        <a href="programs.html#organizations" class="nav-link">For Organizations</a>
+        <a href="immigrant-playbook.html" class="nav-link">Immigrant Playbook</a>
+        <a href="diagnostic.html" class="nav-link">Self-Assessment</a>
+        <a href="case-studies.html" class="nav-link">Success Stories</a>
+        <div class="nav-item-dropdown">
+          <a href="about.html" class="nav-link nav-dropdown-toggle active">About Gagan <span class="icon dropdown-arrow">expand_more</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html" class="dropdown-item">About Gagan</a>
+            <a href="faq.html" class="dropdown-item">Coaching FAQs</a>
+            <a href="pro-bono.html" class="dropdown-item active">Pro Bono Coaching</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="apply.html" class="btn btn-primary btn-sm">
+          <span>Book Discovery Call</span>
+          <span class="icon">arrow_forward</span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open Mobile Menu">
+          <span class="icon">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <img src="assets/images/logo.svg" alt="Leap Limitless Coach">
+          <span class="brand-logo-name"><span>Leap Limitless</span><span>Coach</span></span>
+        </div>
+        <button id="drawer-close" aria-label="Close Menu">
+          <span class="icon" style="font-size: 1.75rem;">close</span>
+        </button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="index.html" class="drawer-link">Home <span class="icon">chevron_right</span></a>
+        <a href="programs.html" class="drawer-link">Coaching Programs <span class="icon">chevron_right</span></a>
+        <a href="programs.html#organizations" class="drawer-link">For Organizations <span class="icon">chevron_right</span></a>
+        <a href="immigrant-playbook.html" class="drawer-link">Immigrant Playbook <span class="icon">chevron_right</span></a>
+        <a href="diagnostic.html" class="drawer-link">Self-Assessment <span class="icon">chevron_right</span></a>
+        <a href="case-studies.html" class="drawer-link">Success Stories <span class="icon">chevron_right</span></a>
+        <a href="about.html" class="drawer-link">About Gagan <span class="icon">chevron_right</span></a>
+        <a href="faq.html" class="drawer-link" style="color: var(--brand-accent-gold-dark); font-weight: 600;">Coaching FAQs <span class="icon">help_outline</span></a>
+        <a href="pro-bono.html" class="drawer-link" style="color: var(--brand-accent-gold-dark); font-weight: 600;">Pro Bono Coaching <span class="icon">volunteer_activism</span></a>
+        <a href="apply.html" class="drawer-link">Book a Call <span class="icon">chevron_right</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- PAGE HERO (Matching Website Standard) -->
+    <section class="page-hero" style="text-align: center; padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3.5rem, 6vw, 5.5rem);">
+      <div class="container text-center" style="max-width: 820px;">
+        <span class="fellowship-badge" style="margin-bottom: 1.25rem;">
+          <span class="icon" style="font-size: 1rem;">volunteer_activism</span> Community Impact &bull; Leadership Equity
+        </span>
+        <h1 class="display-title" style="margin: 0.75rem auto 1.25rem; color: var(--brand-primary); font-family: var(--font-serif);">
+          Pro Bono Executive &amp; Career Coaching
+        </h1>
+        <p class="body-lg" style="max-width: 740px; margin: 0 auto 2.25rem; color: var(--text-secondary);">
+          High-caliber, confidential 1:1 coaching dedicated to high-potential professionals facing systemic hurdles, unexpected layoffs, non-profit resource constraints, or career crisis. No junior associates. Zero financial cost.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="#apply-pro-bono" class="btn btn-primary btn-lg">
+            <span>Apply for Pro Bono Fellowship</span>
+            <span class="icon">arrow_forward</span>
+          </a>
+          <a href="#eligibility" class="btn btn-outline-gold btn-lg">
+            <span>Review Eligibility Criteria</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Metric Ribbon in One Single Line -->
+      <div class="container" style="max-width: 1180px; margin-top: clamp(2.5rem, 5vw, 3.75rem);">
+        <div class="pb-metric-row">
+          <div class="metric-card-light">
+            <div class="metric-card-label">Investment</div>
+            <div class="metric-card-val">100% Free</div>
+            <div class="metric-card-desc">Zero financial cost or catch</div>
+          </div>
+
+
+          <div class="metric-card-light">
+            <div class="metric-card-label">Engagement</div>
+            <div class="metric-card-val">4 Sessions</div>
+            <div class="metric-card-desc">60-90 day strategic sprint</div>
+          </div>
+
+          <div class="metric-card-light">
+            <div class="metric-card-label">Capacity</div>
+            <div class="metric-card-val">2-3 Per Quarter</div>
+            <div class="metric-card-desc">Cohort-based application</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & ETHOS SECTION -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: center;" class="responsive-two-col">
+          <div>
+            <span class="label-caps">The Purpose</span>
+            <h2 class="headline-lg" style="color: var(--brand-primary); margin-top: 0.5rem; margin-bottom: 1.25rem;">
+              Why I Dedicate Executive Hours to Pro Bono Service
+            </h2>
+            <div style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+              <p>
+                When I arrived in the United States as an immigrant professional, I had technical drive and work ethic, but zero corporate network, zero understanding of subtle workplace politics, and no budget for private executive development.
+              </p>
+              <p>
+                I was fortunate to encounter leaders who took a chance on me, offered candid feedback, and opened doors that altered the entire financial and leadership trajectory of my life.
+              </p>
+              <p>
+                Executive coaching at the highest level should not be gated exclusively behind $15,000 corporate budgets. High-potential talent is distributed everywhere, but access, mentorship, and sponsorship are not. Dedicating pro bono seats each quarter is my personal pledge to level that playing field.
+              </p>
+            </div>
+            <div style="margin-top: 1.75rem; background: var(--bg-surface); border: 1px solid var(--border-light); border-left: 4px solid var(--brand-accent-gold); padding: 1.5rem; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);">
+              <p style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--brand-primary); font-style: italic; margin-bottom: 0.35rem;">
+                "When you reach the executive suite, your job is not just to sit at the table. It is to build a longer table and leave the door wide open for those who follow."
+              </p>
+              <span style="font-size: 0.85rem; color: var(--brand-accent-gold-dark); font-weight: 700;">Coach Gagan</span>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md);">
+            <h3 style="font-size: 1.3rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 1.5rem;">Our Core Fellowship Commitments</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="color: var(--brand-accent-gold-dark); flex-shrink: 0;"><span class="icon">verified</span></div>
+                <div>
+                  <strong style="color: var(--brand-primary); display: block; margin-bottom: 0.25rem;">Identical Executive Standard</strong>
+                  <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">Pro bono clients receive the exact same rigor, psychometric assessments, strategic tools, and 1:1 attention as Fortune 500 corporate clients.</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="color: var(--brand-accent-gold-dark); flex-shrink: 0;"><span class="icon">lock</span></div>
+                <div>
+                  <strong style="color: var(--brand-primary); display: block; margin-bottom: 0.25rem;">Complete Confidentiality</strong>
+                  <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">All sessions adhere strictly to the International Coaching Federation (ICF) Code of Ethics. Your identity and discussions remain 100% confidential.</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="color: var(--brand-accent-gold-dark); flex-shrink: 0;"><span class="icon">all_inclusive</span></div>
+                <div>
+                  <strong style="color: var(--brand-primary); display: block; margin-bottom: 0.25rem;">The Pay-It-Forward Pact</strong>
+                  <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">The only investment requested is a moral commitment: once you secure your promotion, compensation lift, or job transition, you agree to mentor someone in your community.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELIGIBILITY STREAMS SECTION -->
+    <section id="eligibility" class="section">
+      <div class="container">
+        <div class="text-center" style="max-width: 700px; margin: 0 auto 3.5rem;">
+          <span class="label-caps">Target Audiences</span>
+          <h2 class="headline-lg" style="color: var(--brand-primary); margin-top: 0.5rem; margin-bottom: 1rem;">
+            Who Qualifies for Pro Bono Coaching?
+          </h2>
+          <p class="body-md" style="color: var(--text-secondary);">
+            Pro bono fellowships are reserved for high-potential individuals with undeniable commitment who face genuine financial constraints or systemic hurdles.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;">
+          <!-- Stream 1 -->
+          <div class="stream-card-light">
+            <div class="stream-icon-light">
+              <span class="icon">public</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.75rem;">
+              Immigrant &amp; First-Gen Professionals
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1;">
+              First-generation corporate professionals and immigrants battling the invisible cultural ceiling, communication self-doubt, or corporate isolation despite outstanding technical talent.
+            </p>
+            <div style="font-size: 0.82rem; color: var(--brand-accent-gold-dark); font-weight: 700;">
+              Focus: Cultural fluency, visibility, and self-advocacy.
+            </div>
+          </div>
+
+          <!-- Stream 2 -->
+          <div class="stream-card-light">
+            <div class="stream-icon-light">
+              <span class="icon">crisis_alert</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.75rem;">
+              Sudden Job Loss &amp; Career Transition
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1;">
+              Experienced contributors navigating unexpected tech layoffs, corporate restructuring, or sudden contract terminations who do not have executive outplacement support.
+            </p>
+            <div style="font-size: 0.82rem; color: var(--brand-accent-gold-dark); font-weight: 700;">
+              Focus: Positioning, interview mastery, and rapid rebound.
+            </div>
+          </div>
+
+          <!-- Stream 3 -->
+          <div class="stream-card-light">
+            <div class="stream-icon-light">
+              <span class="icon">diversity_3</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.75rem;">
+              Non-Profit &amp; Social Impact Leaders
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1;">
+              Founders, executive directors, and community leaders running grassroots NGOs, community organizations, and mission-driven causes with minimal executive compensation.
+            </p>
+            <div style="font-size: 0.82rem; color: var(--brand-accent-gold-dark); font-weight: 700;">
+              Focus: Stakeholder influence, board communication, and burnout prevention.
+            </div>
+          </div>
+
+          <!-- Stream 4 -->
+          <div class="stream-card-light">
+            <div class="stream-icon-light">
+              <span class="icon">school</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.75rem;">
+              High-Drive Recent Graduates
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1;">
+              First-in-family university graduates breaking into the corporate world who have high hunger and ambition but lack access to senior industry mentors or executive coaching networks.
+            </p>
+            <div style="font-size: 0.82rem; color: var(--brand-accent-gold-dark); font-weight: 700;">
+              Focus: Early-career positioning, networking, and compensation confidence.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- APPLICATION FORM SECTION -->
+    <section id="apply-pro-bono" class="section">
+      <div class="container-narrow">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <span class="badge badge-gold" style="margin-bottom: 0.75rem;">Application Form</span>
+          <h2 class="headline-lg" style="color: var(--brand-primary); margin-bottom: 0.75rem; font-family: var(--font-serif);">
+            Apply for the Pro Bono Coaching Fellowship
+          </h2>
+          <p class="body-md" style="color: var(--text-secondary); max-width: 620px; margin: 0 auto;">
+            Applications are reviewed on a rolling quarterly cycle. Please answer transparently so Coach Gagan can evaluate readiness and community impact.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: clamp(1.75rem, 4vw, 3rem); box-shadow: var(--shadow-lg);">
+          
+          <form id="proBonoForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;" class="responsive-two-col">
+              <div>
+                <label for="applicantName" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">Full Name *</label>
+                <input type="text" id="applicantName" name="name" required placeholder="Your full name" class="pb-form-input">
+              </div>
+              <div>
+                <label for="applicantEmail" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">Email Address *</label>
+                <input type="email" id="applicantEmail" name="email" required placeholder="your.email@example.com" class="pb-form-input">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;" class="responsive-two-col">
+              <div>
+                <label for="applicantPhone" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">Phone / WhatsApp</label>
+                <input type="tel" id="applicantPhone" name="phone" placeholder="+1 (555) 000-0000" class="pb-form-input">
+              </div>
+              <div>
+                <label for="applicantLinkedin" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">LinkedIn Profile URL *</label>
+                <input type="url" id="applicantLinkedin" name="linkedin" required placeholder="https://linkedin.com/in/yourname" class="pb-form-input">
+              </div>
+            </div>
+
+            <div>
+              <label for="applicantStream" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">Which group best describes your situation? *</label>
+              <select id="applicantStream" name="stream" required class="pb-form-input" style="height: 48px;">
+                <option value="">Select your category...</option>
+                <option value="immigrant">Underrepresented Immigrant or First-Generation Professional</option>
+                <option value="layoff">Career Disruption, Unexpected Layoff, or Unemployment</option>
+                <option value="nonprofit">Non-Profit, NGO, or Community Impact Leader</option>
+                <option value="graduate">Recent First-Generation College Graduate</option>
+                <option value="other">Other Unique Financial or Hardship Situation</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="applicantChallenge" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">What is the #1 career challenge or roadblock you are facing right now? *</label>
+              <textarea id="applicantChallenge" name="challenge" rows="3" required placeholder="Describe your current plateau, transition, or obstacle in detail..." class="pb-form-input" style="resize: vertical;"></textarea>
+            </div>
+
+            <div>
+              <label for="applicantImpact" style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.4rem;">What would overcoming this roadblock mean for you, your family, or your community? *</label>
+              <textarea id="applicantImpact" name="impact" rows="3" required placeholder="What changes if you succeed in breaking through?" class="pb-form-input" style="resize: vertical;"></textarea>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+              <label class="commitment-check-light">
+                <input type="checkbox" id="commitPunctual" required>
+                <span><strong style="color: var(--brand-primary);">Punctuality Commitment:</strong> I understand Coach Gagan's time is valuable. I commit to attending all 4 scheduled sessions on time without unexcused cancellations.</span>
+              </label>
+
+              <label class="commitment-check-light">
+                <input type="checkbox" id="commitAction" required>
+                <span><strong style="color: var(--brand-primary);">Action Commitment:</strong> I will actively complete all agreed strategic exercises, revisions, and homework between sessions.</span>
+              </label>
+
+              <label class="commitment-check-light">
+                <input type="checkbox" id="commitPayForward" required>
+                <span><strong style="color: var(--brand-primary);">Pay-It-Forward Pact:</strong> When I reach my target compensation or leadership breakthrough, I commit to mentoring or assisting another professional in my community.</span>
+              </label>
+            </div>
+
+            <!-- Honeypot anti-spam field -->
+            <div style="display: none;" aria-hidden="true">
+              <label for="company-website">Company Website</label>
+              <input type="text" id="company-website" name="company-website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Dynamic Math CAPTCHA -->
+            <div style="background: var(--bg-canvas-alt); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 1.1rem 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem;">
+                <label for="captcha-answer" style="margin-bottom: 0; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; color: var(--brand-primary); font-size: 0.88rem;">
+                  <span class="icon" style="font-size: 1.1rem; color: var(--brand-accent-gold-dark);">verified_user</span>
+                  <span>Security Verification: Solve this simple challenge</span>
+                </label>
+                <button type="button" id="captcha-refresh-btn" class="btn btn-sm" style="padding: 0.2rem 0.65rem; font-size: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-light); color: var(--text-secondary); cursor: pointer;" title="Generate new challenge">
+                  <span class="icon" style="font-size: 0.95rem;">refresh</span> New
+                </button>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <div id="captcha-question" style="font-family: var(--font-mono, monospace); font-weight: 700; font-size: 1.2rem; color: var(--brand-primary); background: var(--bg-surface); padding: 0.5rem 1.1rem; border-radius: var(--radius-sm); border: 1px dashed var(--border-light); letter-spacing: 0.08em; min-width: 110px; text-align: center; user-select: none;">
+                  -- + --
+                </div>
+                <span style="font-weight: 700; font-size: 1.2rem; color: var(--brand-primary);">=</span>
+                <input type="number" id="captcha-answer" class="pb-form-input" style="max-width: 140px; font-weight: 700; font-size: 1.05rem; text-align: center;" placeholder="Answer" required autocomplete="off">
+              </div>
+              <p id="captcha-error" style="color: #c93b2b; font-size: 0.825rem; margin-top: 0.5rem; display: none; font-weight: 600;">
+                Incorrect answer. Please solve the challenge to proceed.
+              </p>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <button type="submit" id="submitProBonoBtn" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">
+                <span>Submit Pro Bono Application</span>
+                <span class="icon">send</span>
+              </button>
+            </div>
+
+            <div id="formSuccessMessage" style="display: none; background: var(--brand-emerald-subtle); border: 1px solid var(--brand-emerald); padding: 1.75rem; border-radius: var(--radius-md); text-align: center; color: var(--brand-primary); margin-top: 1rem;">
+              <span class="icon text-emerald" style="font-size: 2.25rem; display: block; margin-bottom: 0.5rem;">check_circle</span>
+              <strong style="font-size: 1.15rem; display: block; margin-bottom: 0.35rem; font-family: var(--font-serif);">Application Successfully Submitted</strong>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0 0 1.25rem; line-height: 1.6;">
+                Thank you for sharing your story. Your application has been logged and your email draft has been generated for Coach Gagan at <strong>coach@leaplimitless.com</strong>.
+              </p>
+              <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                <a id="openMailClientBtn" href="#" class="btn btn-primary btn-sm">
+                  <span class="icon">mail</span>
+                  <span>Open Email Draft in Mail App</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="section section-alt">
+      <div class="container-narrow">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <span class="label-caps">Common Questions</span>
+          <h2 class="headline-lg" style="color: var(--brand-primary); margin-top: 0.5rem; font-family: var(--font-serif);">Pro Bono Coaching FAQs</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="faq-card-light">
+            <h3 style="font-size: 1.1rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.5rem;">Is pro bono coaching really 100% free?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+              Yes. There are no fees, credit card requirements, or surprise upsells. It is a genuine service initiative dedicated to leadership equity and community impact.
+            </p>
+          </div>
+
+          <div class="faq-card-light">
+            <h3 style="font-size: 1.1rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.5rem;">How many pro bono clients are accepted?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+              Because every engagement is conducted directly 1:1 with Coach Gagan (with no junior associates), capacity is strictly limited to 2 to 3 clients per quarter.
+            </p>
+          </div>
+
+          <div class="faq-card-light">
+            <h3 style="font-size: 1.1rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.5rem;">What if I can afford paying for coaching?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+              We operate on an honor system. If your employer provides an executive coaching stipend or your current compensation enables you to invest in advisory support, we respectfully ask that you apply through our standard <a href="apply.html" style="color: var(--brand-accent-gold-dark); text-decoration: underline; font-weight: 600;">Executive Consultation</a> so pro bono seats remain available for those with genuine financial hurdles.
+            </p>
+          </div>
+
+          <div class="faq-card-light">
+            <h3 style="font-size: 1.1rem; color: var(--brand-primary); font-family: var(--font-serif); margin-bottom: 0.5rem;">How are applicants selected?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+              Selections are made based on three criteria: genuine need, clarity of the challenge, and high personal coachability and commitment to taking immediate action.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="assets/images/logo.svg" alt="Leap Limitless Coach">
+            <span class="brand-logo-name" style="color: var(--text-inverse);"><span>Leap Limitless</span><span>Coach</span></span>
+          </div>
+          <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1.5rem; max-width: 320px;">
+            Executive, career, and life coaching by Gagan, ICF-ACC. Helping professionals grow, lead, and thrive, no matter where they started.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; color: var(--text-inverse-muted); margin-bottom: 1rem;">
+            <div>Email: <a href="mailto:coach@leaplimitless.com" style="color: var(--brand-accent-gold-light); text-decoration: underline;">coach@leaplimitless.com</a></div>
+            <div>Phone: <a href="tel:+14127270544" style="color: var(--brand-accent-gold-light); text-decoration: underline;">+1.412.727.0544</a></div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-dark">ICF-ACC Certified</span>
+            <span class="badge badge-dark">20+ Years Leadership in Fortune 500</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="programs.html" class="footer-link">Coaching Programs</a>
+            <a href="programs.html#organizations" class="footer-link">For Organizations</a>
+            <a href="immigrant-playbook.html" class="footer-link">Immigrant Playbook</a>
+            <a href="diagnostic.html" class="footer-link">Free Self-Assessment</a>
+            <a href="case-studies.html" class="footer-link">Success Stories</a>
+            <a href="about.html" class="footer-link">About Gagan</a>
+            <a href="faq.html" class="footer-link">Coaching FAQs</a>
+            <a href="pro-bono.html" class="footer-link" style="color: var(--brand-accent-gold-light); font-weight: 600;">Pro Bono Coaching</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Focus Areas</h4>
+          <div class="footer-links">
+            <a href="programs.html#career" class="footer-link">Career Growth &amp; Acceleration</a>
+            <a href="programs.html#executive" class="footer-link">Executive Leadership</a>
+            <a href="immigrant-playbook.html" class="footer-link">Immigrant Professional Growth</a>
+            <a href="programs.html#pivot" class="footer-link">Mid-Life Career Pivot</a>
+            <a href="programs.html#business" class="footer-link">Business &amp; Entrepreneurship</a>
+            <a href="programs.html#workplace" class="footer-link">Workplace Relationships</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1rem;">
+            Join professionals receiving Gagan's monthly insights on career growth, leadership, and winning at work.
+          </p>
+          <form class="briefing-form" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <input type="email" placeholder="your@email.com" class="form-input" style="background: var(--bg-dark-card); color: var(--text-inverse); border-color: var(--border-dark);" required>
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe for Free Insights</button>
+          </form>
+          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <a href="https://www.linkedin.com/company/leaplimitless/" target="_blank" rel="noopener noreferrer" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              <span>Follow Leap Limitless on LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/people/Leap-Limitless/61584942084016/" target="_blank" rel="noopener noreferrer" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Follow Leap Limitless on Facebook</span>
+            </a>
+            <a href="https://www.linkedin.com/in/gaganonline/" target="_blank" rel="noopener noreferrer" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.82rem; color: var(--text-inverse-muted);">
+              <span class="icon" style="font-size: 1rem;">person</span>
+              <span>Connect with Gagan</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gagan Sharma &bull; Leap Limitless Coach. All rights reserved. leaplimitless.com</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="faq.html" class="footer-link">FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=10"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("proBonoForm");
+      const successMsg = document.getElementById("formSuccessMessage");
+      const submitBtn = document.getElementById("submitProBonoBtn");
+      const openMailClientBtn = document.getElementById("openMailClientBtn");
+
+      // Bot Protection: Honeypot & Dynamic Math CAPTCHA
+      const captchaQuestion = document.getElementById("captcha-question");
+      const captchaAnswer = document.getElementById("captcha-answer");
+      const captchaRefreshBtn = document.getElementById("captcha-refresh-btn");
+      const captchaError = document.getElementById("captcha-error");
+      const honeypot = document.getElementById("company-website");
+      let captchaResult = null;
+
+      function generateCaptcha() {
+        const num1 = Math.floor(Math.random() * 8) + 2; // 2 - 9
+        const num2 = Math.floor(Math.random() * 8) + 1; // 1 - 8
+        captchaResult = num1 + num2;
+        if (captchaQuestion) {
+          captchaQuestion.textContent = `${num1} + ${num2}`;
+        }
+        if (captchaAnswer) {
+          captchaAnswer.value = "";
+          captchaAnswer.style.borderColor = "";
+        }
+        if (captchaError) {
+          captchaError.style.display = "none";
+        }
+      }
+
+      if (captchaQuestion && captchaAnswer) {
+        generateCaptcha();
+        if (captchaRefreshBtn) {
+          captchaRefreshBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            generateCaptcha();
+            captchaAnswer.focus();
+          });
+        }
+        captchaAnswer.addEventListener("input", function () {
+          if (captchaError) {
+            captchaError.style.display = "none";
+          }
+          captchaAnswer.style.borderColor = "";
+        });
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Honeypot check
+          if (honeypot && honeypot.value.trim() !== "") {
+            console.warn("Bot submission rejected.");
+            return;
+          }
+
+          // CAPTCHA verification
+          if (captchaAnswer && captchaResult !== null) {
+            const userAnswer = parseInt(captchaAnswer.value.trim(), 10);
+            if (isNaN(userAnswer) || userAnswer !== captchaResult) {
+              if (captchaError) {
+                captchaError.style.display = "block";
+              }
+              captchaAnswer.style.borderColor = "#c93b2b";
+              captchaAnswer.focus();
+              generateCaptcha();
+              return;
+            }
+          }
+
+          const name = document.getElementById("applicantName")?.value?.trim() || "";
+          const email = document.getElementById("applicantEmail")?.value?.trim() || "";
+          const phone = document.getElementById("applicantPhone")?.value?.trim() || "Not provided";
+          const linkedin = document.getElementById("applicantLinkedin")?.value?.trim() || "";
+          const streamSelect = document.getElementById("applicantStream");
+          const streamText = streamSelect ? streamSelect.options[streamSelect.selectedIndex]?.text : "";
+          const challenge = document.getElementById("applicantChallenge")?.value?.trim() || "";
+          const impact = document.getElementById("applicantImpact")?.value?.trim() || "";
+
+          const mailSubject = encodeURIComponent(`[Pro Bono Fellowship Application] ${name} - ${streamText}`);
+          const mailBody = encodeURIComponent(
+            `PRO BONO COACHING FELLOWSHIP APPLICATION\n` +
+            `Recipient: Coach Gagan (coach@leaplimitless.com)\n\n` +
+            `APPLICANT PROFILE\n` +
+            `Full Name: ${name}\n` +
+            `Email Address: ${email}\n` +
+            `Phone / WhatsApp: ${phone}\n` +
+            `LinkedIn Profile: ${linkedin}\n` +
+            `Category / Background: ${streamText}\n\n` +
+            `CURRENT ROADBLOCK & CHALLENGE\n` +
+            `${challenge}\n\n` +
+            `PROJECTED IMPACT & BREAKTHROUGH\n` +
+            `${impact}\n\n` +
+            `COMMITMENTS CONFIRMED\n` +
+            `[x] 100% Punctuality Commitment (Attending all 4 sessions)\n` +
+            `[x] 100% Action Commitment (Completing all homework & exercises)\n` +
+            `[x] Pay-It-Forward Pact (Mentoring another professional upon breakthrough)\n\n` +
+            `Submitted via leaplimitless.com/pro-bono.html`
+          );
+
+          const mailtoUrl = `mailto:coach@leaplimitless.com?subject=${mailSubject}&body=${mailBody}`;
+
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>Submitting &amp; Generating Email...</span> <span class="icon">hourglass_top</span>';
+
+          setTimeout(function () {
+            form.reset();
+            submitBtn.style.display = "none";
+            successMsg.style.display = "block";
+            if (openMailClientBtn) {
+              openMailClientBtn.setAttribute("href", mailtoUrl);
+            }
+            successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+
+            // Automatically trigger user email client
+            window.location.href = mailtoUrl;
+          }, 600);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

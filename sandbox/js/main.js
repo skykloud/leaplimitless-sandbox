@@ -30,15 +30,81 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeDrawer);
   });
 
-  // 2. Header Scroll Effect
+  // 2. Header Scroll Effect & Adaptive Dropdown Menu
   const header = document.querySelector('.site-header');
+  const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+  const dropdownToggle = document.querySelector('.nav-item-dropdown');
+
+  function checkAdaptiveDropdown() {
+    if (!dropdownMenu || !dropdownToggle) return;
+
+    if (document.body.classList.contains('lc-body')) {
+      dropdownMenu.classList.add('adaptive-dark');
+      return;
+    }
+
+    const rect = dropdownToggle.getBoundingClientRect();
+    const sampleX = Math.round(rect.left + Math.min(60, rect.width / 2));
+    const sampleY = Math.round(rect.bottom + 50);
+
+    let isOverDark = false;
+    const elements = document.elementsFromPoint(sampleX, sampleY);
+
+    if (elements && elements.length) {
+      for (const el of elements) {
+        if (el === dropdownMenu || dropdownMenu.contains(el)) continue;
+        if (el.closest('.site-header')) continue;
+
+        // Dark section or dark container
+        if (el.closest('.section-dark, .site-footer, .calc-output-panel, .diagnostic-header, .dark-surface, [data-theme="dark"]')) {
+          isOverDark = true;
+          break;
+        }
+
+        // Image or photo backdrop
+        if (el.tagName === 'IMG' || el.tagName === 'PICTURE' || el.closest('.hero-image-frame, .hero-image-inner, .playbook-hero, .image-overlay')) {
+          isOverDark = true;
+          break;
+        }
+
+        // Background color brightness check
+        const style = window.getComputedStyle(el);
+        const bg = style.backgroundColor;
+        const rgb = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (rgb) {
+          const r = parseInt(rgb[1], 10);
+          const g = parseInt(rgb[2], 10);
+          const b = parseInt(rgb[3], 10);
+          const isTransparent = bg.includes('rgba') && bg.includes(', 0)');
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          if (!isTransparent && brightness < 110) {
+            isOverDark = true;
+            break;
+          }
+        }
+      }
+    }
+
+    if (isOverDark) {
+      dropdownMenu.classList.add('adaptive-dark');
+    } else {
+      dropdownMenu.classList.remove('adaptive-dark');
+    }
+  }
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
     }
+    checkAdaptiveDropdown();
   }, { passive: true });
+
+  if (dropdownToggle) {
+    dropdownToggle.addEventListener('mouseenter', checkAdaptiveDropdown);
+  }
+  checkAdaptiveDropdown();
 
   // 3. Modal Interactions (Consultation Intake)
   const modalTriggers = document.querySelectorAll('[data-open-modal]');
@@ -110,19 +176,73 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('revealed'));
   }
 
-  // 6. Blueprint Tabs Switcher (if present)
+  // 6. Blueprint Tabs Switcher & Deep Linking (Rule 1 through Rule 5)
   const tabButtons = document.querySelectorAll('.blueprint-tab');
   const tabContents = document.querySelectorAll('.blueprint-content');
+
+  function activateBlueprintTab(targetId, shouldScroll) {
+    if (!targetId) return;
+    const cleanId = targetId.replace(/^#/, '');
+    const targetContent = document.getElementById(cleanId);
+    const targetButton = document.querySelector(`.blueprint-tab[data-tab="${cleanId}"]`);
+
+    if (targetContent && targetButton) {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      targetButton.classList.add('active');
+      targetContent.classList.add('active');
+
+      if (shouldScroll) {
+        const headerOffset = 100;
+        const elementPosition = targetButton.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-tab');
-      tabButtons.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) targetEl.classList.add('active');
+      activateBlueprintTab(targetId, false);
+      if (history.replaceState) {
+        history.replaceState(null, null, `#${targetId}`);
+      }
     });
+  });
+
+  // Intercept all links targeting #tab-rule (including footer links)
+  document.querySelectorAll('a[href*="#tab-rule"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      const hashIndex = href.indexOf('#');
+      if (hashIndex !== -1) {
+        const hash = href.substring(hashIndex + 1);
+        const targetContent = document.getElementById(hash);
+        if (targetContent) {
+          e.preventDefault();
+          activateBlueprintTab(hash, true);
+          if (history.pushState) {
+            history.pushState(null, null, `#${hash}`);
+          }
+        }
+      }
+    });
+  });
+
+  // Handle URL hash on initial page load and on hashchange
+  if (window.location.hash && window.location.hash.startsWith('#tab-rule')) {
+    setTimeout(() => {
+      activateBlueprintTab(window.location.hash, true);
+    }, 150);
+  }
+
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash && window.location.hash.startsWith('#tab-rule')) {
+      activateBlueprintTab(window.location.hash, true);
+    }
   });
 });
