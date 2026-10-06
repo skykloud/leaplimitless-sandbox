@@ -7,7 +7,7 @@
   <meta name="description" content="Take our 60-second interactive diagnostic to audit your Executive Gravitas, Cultural Fluency, and Compensation Leverage. Receive a personalized roadmap.">
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="stylesheet" href="css/style.css?v=7">
-  <link rel="stylesheet" href="css/components.css?v=7">
+  <link rel="stylesheet" href="css/components.css?v=9">
   <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
@@ -38,13 +38,14 @@
           <div class="nav-dropdown-menu">
             <a href="about.html" class="dropdown-item">About Gagan</a>
             <a href="faq.html" class="dropdown-item">Coaching FAQs</a>
+            <a href="pro-bono.html" class="dropdown-item">Pro Bono Coaching</a>
           </div>
         </div>
       </nav>
 
       <div class="header-actions">
         <a href="apply.html" class="btn btn-primary btn-sm">
-          <span>Apply for Consultation</span>
+          <span>Book Discovery Call</span>
           <span class="icon">arrow_forward</span>
         </a>
         <button id="menu-toggle" class="menu-toggle" aria-label="Open Mobile Menu">
@@ -76,8 +77,12 @@
         <a href="case-studies.html" class="drawer-link">Success Stories <span class="icon">chevron_right</span></a>
         <a href="about.html" class="drawer-link">About Gagan <span class="icon">chevron_right</span></a>
         <a href="faq.html" class="drawer-link" style="color: var(--brand-accent-gold-dark); font-weight: 600;">Coaching FAQs <span class="icon">help_outline</span></a>
+        <a href="pro-bono.html" class="drawer-link">Pro Bono Coaching <span class="icon">chevron_right</span></a>
         <a href="apply.html" class="drawer-link">Book a Call <span class="icon">chevron_right</span></a>
       </nav>
+    </div>
+    <div style="padding-top: 2rem;">
+      <a href="apply.html" class="btn btn-primary" style="width: 100%;">Book Discovery Call</a>
     </div>
   </aside>
 
@@ -370,15 +375,110 @@
               </ul>
             </div>
 
-            <a href="apply.html" class="btn btn-primary btn-lg">
-              <span>Book 30-Min Diagnostic Review Session</span>
-              <span class="icon">arrow_forward</span>
-            </a>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <a href="apply.html" class="btn btn-primary btn-lg">
+                <span>Book 30-Min Diagnostic Review Session</span>
+                <span class="icon">arrow_forward</span>
+              </a>
+              <a href="#comp-calculator" class="btn btn-secondary btn-lg">
+                <span>Calculate Your Compensation Gap</span>
+                <span class="icon">calculate</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- COMPENSATION CALCULATOR -->
+  <section class="section section-alt" id="comp-calculator" style="border-top: 1px solid var(--border-light); padding: clamp(3.5rem, 5vw, 5rem) 0;">
+    <div class="container">
+      <div style="max-width: 750px; margin: 0 auto 3rem; text-align: center;">
+        <span class="label-caps">Your Growth Potential</span>
+        <h2 class="headline-lg" style="margin: 0.75rem 0 1rem;">
+          What Is Your Compensation Gap Costing You?
+        </h2>
+        <p class="body-lg">
+          Most professionals leave $100,000 to $400,000+ on the table annually by not strategically managing their career trajectory. See your potential upside.
+        </p>
+      </div>
+
+      <div class="calculator-box" style="max-width: 980px; margin: 0 auto;">
+        <div class="calculator-grid">
+          <div>
+            <div class="calc-slider-group">
+              <div class="calc-slider-header">
+                <label class="form-label" for="calc-current-comp">Current Total Annual Compensation</label>
+                <span id="display-current-comp" class="calc-slider-val">$120,000</span>
+              </div>
+              <input type="range" id="calc-current-comp" class="calc-range" min="30000" max="750000" step="5000" value="120000">
+              <div class="flex-between body-sm" style="margin-top: 0.35rem;">
+                <span>$30,000</span><span>$750,000+</span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 2rem;">
+              <label class="form-label" for="calc-target-level">Target Role Level</label>
+              <select id="calc-target-level" class="form-select">
+                <option value="intern">Intern / Co-op / Graduate Trainee</option>
+                <option value="entry-level">Entry-Level / Associate / Analyst (IC1)</option>
+                <option value="mid-level">Mid-Level Professional / Specialist (IC2/IC3)</option>
+                <option value="senior-lead">Senior Professional / Tech Lead / Staff (IC4/IC5)</option>
+                <option value="manager">Manager / Team Lead / Principal</option>
+                <option value="director">Senior Manager / Associate Director / Director</option>
+                <option value="senior-director" selected>Senior Director / Head of Function</option>
+                <option value="vp">Vice President (VP)</option>
+                <option value="svp">Senior VP / Executive VP (SVP/EVP)</option>
+                <option value="csuite">C-Suite / Managing Director / Business Owner</option>
+              </select>
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="calc-slider-header">
+                <label class="form-label" for="calc-years-band">Years at Current Level</label>
+                <span id="display-years-band" class="calc-slider-val">2 Years</span>
+              </div>
+              <input type="range" id="calc-years-band" class="calc-range" min="1" max="6" step="1" value="2">
+              <div class="flex-between body-sm" style="margin-top: 0.35rem;">
+                <span>1 Year</span><span>6+ Years</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-output-panel">
+            <div>
+              <span class="label-caps" style="color: var(--brand-accent-gold);">Estimated Annual Compensation Gap</span>
+              <div id="output-annual-gap" class="calc-highlight-metric">$240,000</div>
+              <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1.5rem;">
+                The gap between your current package and the upper-quartile benchmark for your target role.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--bg-dark-border);">
+                <div class="flex-between">
+                  <span class="body-sm" style="color: var(--text-inverse-muted);">Target Market Benchmark</span>
+                  <strong id="output-target-package" style="color: var(--text-inverse);">$360,000</strong>
+                </div>
+                <div class="flex-between">
+                  <span class="body-sm" style="color: var(--text-inverse-muted);">3-Year Opportunity Cost</span>
+                  <strong id="output-three-year-lift" class="text-gold">$734,400</strong>
+                </div>
+                <div class="flex-between">
+                  <span class="body-sm" style="color: var(--text-inverse-muted);">Coaching ROI Estimate</span>
+                  <strong id="output-roi-multiplier" class="text-emerald">20x ROI</strong>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 2rem;">
+              <a href="apply.html" class="btn btn-gold" style="width: 100%;">
+                <span>Close Your Gap with Gagan</span>
+                <span class="icon">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -398,6 +498,7 @@
           <a href="privacy.html" class="footer-link">Privacy</a>
           <a href="terms.html" class="footer-link">Terms</a>
           <a href="faq.html" class="footer-link">FAQs</a>
+          <a href="pro-bono.html" class="footer-link">Pro Bono</a>
           <a href="https://www.linkedin.com/company/leaplimitless/" target="_blank" rel="noopener noreferrer" class="footer-link" style="display: inline-flex; align-items: center; gap: 0.35rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
             <span>LinkedIn</span>
@@ -411,7 +512,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=10"></script>
   <script src="js/diagnostic.js"></script>
+  <script src="js/calculator.js?v=4"></script>
 </body>
 </html>
