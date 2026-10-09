@@ -15,9 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultsContainer = diagnosticContainer.querySelector('#diagnostic-results');
   const questionsWrapper = diagnosticContainer.querySelector('#diagnostic-questions-wrapper');
 
+  const intakeContainer = diagnosticContainer.querySelector('#diagnostic-intake');
+  const intakeForm = diagnosticContainer.querySelector('#diagnostic-intake-form');
+
   let currentStep = 0;
   const totalSteps = steps.length;
   const userAnswers = {};
+
+  // Check for existing lead data
+  try {
+    const savedLead = localStorage.getItem('leap_assessment_lead');
+    if (savedLead) {
+      const parsed = JSON.parse(savedLead);
+      const nameInput = document.getElementById('diag-user-name');
+      const emailInput = document.getElementById('diag-user-email');
+      if (nameInput && parsed.name) nameInput.value = parsed.name;
+      if (emailInput && parsed.email) emailInput.value = parsed.email;
+    }
+  } catch (e) {
+    // Ignore storage errors
+  }
 
   // Attach selection listener to all option cards
   diagnosticContainer.querySelectorAll('.diagnostic-option-card').forEach(card => {
@@ -78,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (currentStep === totalSteps - 1) {
-        nextBtn.innerHTML = 'Calculate Diagnostic Results <span class="icon">arrow_forward</span>';
+        nextBtn.innerHTML = 'Complete Assessment <span class="icon">arrow_forward</span>';
       } else {
         nextBtn.innerHTML = 'Continue <span class="icon">arrow_forward</span>';
       }
@@ -102,14 +119,59 @@ document.addEventListener('DOMContentLoaded', () => {
         currentStep++;
         updateStepView();
       } else {
-        calculateAndShowResults();
+        showIntakeForm();
       }
     });
   }
 
-  function calculateAndShowResults() {
-    // Hide questions, show results
+  function showIntakeForm() {
+    // Hide questions wrapper and show intake form
     if (questionsWrapper) questionsWrapper.style.display = 'none';
+    if (intakeContainer) {
+      intakeContainer.style.display = 'block';
+      intakeContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      calculateAndShowResults();
+    }
+  }
+
+  if (intakeForm) {
+    intakeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('diag-user-name');
+      const emailInput = document.getElementById('diag-user-email');
+      const newsletterCheckbox = document.getElementById('diag-newsletter-sub');
+
+      const userName = nameInput ? nameInput.value.trim() : '';
+      const userEmail = emailInput ? emailInput.value.trim() : '';
+      const subscribed = newsletterCheckbox ? newsletterCheckbox.checked : true;
+
+      if (!userName || !userEmail) {
+        alert('Please provide your name and email address to view your results.');
+        return;
+      }
+
+      // Save lead information
+      try {
+        localStorage.setItem('leap_assessment_lead', JSON.stringify({
+          name: userName,
+          email: userEmail,
+          newsletter: subscribed,
+          submittedAt: new Date().toISOString()
+        }));
+      } catch (err) {
+        // Ignore storage errors
+      }
+
+      if (intakeContainer) intakeContainer.style.display = 'none';
+      calculateAndShowResults(userName);
+    });
+  }
+
+  function calculateAndShowResults(userName) {
+    // Hide questions and intake, show results
+    if (questionsWrapper) questionsWrapper.style.display = 'none';
+    if (intakeContainer) intakeContainer.style.display = 'none';
     if (resultsContainer) resultsContainer.classList.add('active');
     if (progressBar) progressBar.style.width = '100%';
 
@@ -155,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (culturalPercent < 50 && gravitasPercent < 50) {
       archetypeTitle = 'The Invisible Pillar (High Output, Low Visibility)';
-      archetypeDesc = 'Your organization relies on your brilliance, but executives don’t see you as one of "them." You are experiencing the classic immigrant bamboo ceiling. Shifting from execution to room orchestration will instantly change your trajectory.';
+      archetypeDesc = 'Your organization relies on your brilliance, but executives do not see you as one of "them." You are experiencing the classic immigrant bamboo ceiling. Shifting from execution to room orchestration will instantly change your trajectory.';
     } else if (compPercent < 55 && culturalPercent >= 50) {
       archetypeTitle = 'The Diligent Steward';
       archetypeDesc = 'You understand corporate dynamics well, but your immigration history or scarcity conditioning prevents you from aggressively demanding your upper-quartile market value. You are leaving $150K to $300K+ in annual compensation uncaptured.';
@@ -168,6 +230,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const archetypeDescEl = document.getElementById('archetype-desc');
     if (archetypeTitleEl) archetypeTitleEl.innerText = archetypeTitle;
     if (archetypeDescEl) archetypeDescEl.innerText = archetypeDesc;
+
+    // Personalize results if name is available
+    const nameToDisplay = userName || (() => {
+      try {
+        const saved = JSON.parse(localStorage.getItem('leap_assessment_lead') || '{}');
+        return saved.name || '';
+      } catch(e) { return ''; }
+    })();
+
+    const personalGreetingEl = document.getElementById('results-personal-greeting');
+    if (personalGreetingEl) {
+      if (nameToDisplay) {
+        personalGreetingEl.innerHTML = `<strong>Prepared for ${nameToDisplay}</strong> &bull; Priority Scorecard Analysis`;
+        personalGreetingEl.style.display = 'block';
+      } else {
+        personalGreetingEl.style.display = 'none';
+      }
+    }
+
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // Initialize
