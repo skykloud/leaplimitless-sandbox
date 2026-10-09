@@ -15,7 +15,7 @@
   <!-- Top Announcement Strip -->
   <div class="announcement-bar">
     <span class="pulse-dot"></span>
-    <span>1:1 Coaching with Gagan, ICF-ACC &bull; Schedule a Complimentary Discovery Call</span>
+    <span>1:1 Coaching with Gagan, ICF Certified Coach &bull; Schedule a Complimentary Discovery Call</span>
   </div>
 
   <!-- Header -->
@@ -25,19 +25,29 @@
         <img src="assets/images/logo.svg" alt="Leap Limitless Coach">
         <span class="brand-logo-name"><span>Leap Limitless</span><span>Coach</span></span>
       </a>
-      <nav class="nav-links" aria-label="Primary Navigation">
+                        <nav class="nav-links" aria-label="Primary Navigation">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="programs.html" class="nav-link">Coaching Programs</a>
-        <a href="programs.html#organizations" class="nav-link">For Organizations</a>
-        <a href="immigrant-playbook.html" class="nav-link">Immigrant Playbook</a>
-        <a href="diagnostic.html" class="nav-link">Self-Assessment</a>
-        <a href="case-studies.html" class="nav-link">Success Stories</a>
+        <div class="nav-item-dropdown">
+          <a href="programs.html" class="nav-link nav-dropdown-toggle">Coaching Programs <span class="icon dropdown-arrow">expand_more</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html" class="dropdown-item">1:1 Coaching Programs</a>
+            <a href="corporate.html" class="dropdown-item">Corporate &amp; Team Advisory</a>
+            <a href="pro-bono.html" class="dropdown-item">Pro Bono Fellowship</a>
+          </div>
+        </div>
+        <div class="nav-item-dropdown">
+          <a href="immigrant-playbook.html" class="nav-link nav-dropdown-toggle">Insights &amp; Tools <span class="icon dropdown-arrow">expand_more</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="immigrant-playbook.html" class="dropdown-item">The Immigrant Playbook</a>
+            <a href="diagnostic.html" class="dropdown-item">Leadership Diagnostic</a>
+          </div>
+        </div>
         <div class="nav-item-dropdown">
           <a href="about.html" class="nav-link nav-dropdown-toggle">About Gagan <span class="icon dropdown-arrow">expand_more</span></a>
           <div class="nav-dropdown-menu">
-            <a href="about.html" class="dropdown-item">About Gagan</a>
+            <a href="about.html" class="dropdown-item">About Gagan &amp; Credentials</a>
+            <a href="case-studies.html" class="dropdown-item">Client Success Stories</a>
             <a href="faq.html" class="dropdown-item">Coaching FAQs</a>
-            <a href="pro-bono.html" class="dropdown-item">Pro Bono Coaching</a>
           </div>
         </div>
       </nav>
@@ -53,7 +63,7 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+        <!-- Mobile Drawer -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
   <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
     <div>
@@ -68,18 +78,23 @@
       </div>
       <nav class="drawer-nav">
         <a href="index.html" class="drawer-link">Home <span class="icon">chevron_right</span></a>
-        <a href="programs.html" class="drawer-link">Coaching Programs <span class="icon">chevron_right</span></a>
-        <a href="programs.html#organizations" class="drawer-link">For Organizations <span class="icon">chevron_right</span></a>
-        <a href="immigrant-playbook.html" class="drawer-link">Immigrant Playbook <span class="icon">chevron_right</span></a>
-        <a href="diagnostic.html" class="drawer-link">Self-Assessment <span class="icon">chevron_right</span></a>
-        <a href="case-studies.html" class="drawer-link">Success Stories <span class="icon">chevron_right</span></a>
-        <a href="about.html" class="drawer-link">About Gagan <span class="icon">chevron_right</span></a>
-        <a href="faq.html" class="drawer-link" style="color: var(--brand-accent-gold-dark); font-weight: 600;">Coaching FAQs <span class="icon">help_outline</span></a>
-        <a href="pro-bono.html" class="drawer-link">Pro Bono Coaching <span class="icon">chevron_right</span></a>
-        <a href="apply.html" class="drawer-link">Book a Call <span class="icon">chevron_right</span></a>
+        
+        <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-accent-gold-dark); font-weight: 700; margin: 0.85rem 0 0.25rem 0.5rem;">Coaching Programs</div>
+        <a href="programs.html" class="drawer-link">1:1 Coaching Programs <span class="icon">chevron_right</span></a>
+        <a href="corporate.html" class="drawer-link">Corporate &amp; Team Advisory <span class="icon">chevron_right</span></a>
+        <a href="pro-bono.html" class="drawer-link">Pro Bono Fellowship <span class="icon">chevron_right</span></a>
+
+        <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-accent-gold-dark); font-weight: 700; margin: 1rem 0 0.25rem 0.5rem;">Insights &amp; Tools</div>
+        <a href="immigrant-playbook.html" class="drawer-link">The Immigrant Playbook <span class="icon">chevron_right</span></a>
+        <a href="diagnostic.html" class="drawer-link">Leadership Diagnostic <span class="icon">chevron_right</span></a>
+
+        <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-accent-gold-dark); font-weight: 700; margin: 1rem 0 0.25rem 0.5rem;">About Gagan</div>
+        <a href="about.html" class="drawer-link">About Gagan &amp; Credentials <span class="icon">chevron_right</span></a>
+        <a href="case-studies.html" class="drawer-link">Client Success Stories <span class="icon">chevron_right</span></a>
+        <a href="faq.html" class="drawer-link">Coaching FAQs <span class="icon">chevron_right</span></a>
       </nav>
     </div>
-    <div style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
+    <div style="padding-top: 2rem;">
       <a href="apply.html" class="btn btn-primary" style="width: 100%;">Book Discovery Call</a>
     </div>
   </aside>
@@ -108,7 +123,7 @@
           At Leap Limitless, we work with senior executives, enterprise leaders, founders, and ambitious professionals. We understand that career trajectory, workplace dynamics, compensation, and leadership challenges are deeply personal and sensitive.
         </p>
         <p class="body-md">
-          As an ICF-ACC certified practice, Gagan Sharma and Leap Limitless adhere strictly to the International Coaching Federation Code of Ethics. All coaching conversations, intake responses, diagnostic submissions, and strategic advisory notes remain strictly confidential.
+          As an ICF certified coaching practice, Gagan Sharma and Leap Limitless adhere strictly to the International Coaching Federation Code of Ethics. All coaching conversations, intake responses, diagnostic submissions, and strategic advisory notes remain strictly confidential.
         </p>
       </section>
 
@@ -190,7 +205,7 @@
             <span class="brand-logo-name" style="color: var(--text-inverse);"><span>Leap Limitless</span><span>Coach</span></span>
           </div>
           <p class="body-sm" style="color: var(--text-inverse-muted); margin-bottom: 1.25rem; max-width: 320px;">
-            Executive leadership advisory, career acceleration, and life coaching led by Gagan Sharma, ICF-ACC.
+            Executive leadership and career coaching led by Gagan Sharma, ICF Certified Coach.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; color: var(--text-inverse-muted); margin-bottom: 1rem;">
             <div>Email: <a href="mailto:coach@leaplimitless.com" style="color: var(--brand-accent-gold-light); text-decoration: underline;">coach@leaplimitless.com</a></div>
@@ -204,7 +219,7 @@
           <div class="footer-links">
             <a href="index.html" class="footer-link">Home</a>
             <a href="programs.html" class="footer-link">Coaching Programs</a>
-            <a href="programs.html#organizations" class="footer-link">For Organizations</a>
+            <a href="corporate.html" class="footer-link">For Organizations</a>
             <a href="immigrant-playbook.html" class="footer-link">Immigrant Playbook</a>
             <a href="diagnostic.html" class="footer-link">Self-Assessment</a>
             <a href="case-studies.html" class="footer-link">Success Stories</a>

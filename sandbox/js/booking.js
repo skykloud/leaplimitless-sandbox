@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const mailSubject = encodeURIComponent(`[Candidate Briefing] ${fullName} - ${currentOrg}`);
       const mailBody = encodeURIComponent(
         `CONFIDENTIAL EXECUTIVE CANDIDATE BRIEFING\n` +
-        `Advisor: Gagan Sharma, ICF-ACC (coach@leaplimitless.com)\n\n` +
+        `Advisor: Gagan Sharma, ICF Certified Coach (coach@leaplimitless.com)\n\n` +
         `Candidate Name: ${fullName}\n` +
         `Current Role: ${currentTitle}\n` +
         `Organization: ${currentOrg}\n` +
