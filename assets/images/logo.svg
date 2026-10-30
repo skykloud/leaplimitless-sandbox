@@ -5,12 +5,12 @@
       <stop offset="100%" stop-color="#E8C99B" />
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="8" fill="#0D1B16"/>
-  <rect x="1" y="1" width="46" height="46" rx="7" stroke="#253A30" stroke-width="1"/>
-  <!-- Elegant geometric monogram: First L -->
-  <path d="M12 12H16V30H24V34H12V12Z" fill="#FAF9F5"/>
-  <!-- Second L shifted with upward arrow accent in gold -->
-  <path d="M21 19H25V30H33V34H21V19Z" fill="url(#llGrad)"/>
-  <!-- Ascending arrow crest at top right -->
-  <path d="M30 14L37 14L37 21M37 14L28 23" stroke="url(#llGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="48" height="48" rx="12" fill="#0D1B16"/>
+  <circle cx="24" cy="24" r="19.5" stroke="url(#llGrad)" stroke-width="1.2" opacity="0.55"/>
+  <!-- Rounded First L -->
+  <path d="M15 14V30C15 31.1 15.9 32 17 32H25" stroke="#FAF9F5" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Second L curving into upward leap -->
+  <path d="M22 20V30C22 31.1 22.9 32 24 32H33" stroke="url(#llGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ascending curved trajectory and arrow tip -->
+  <path d="M26 24C28.5 20.5 31.5 17.5 35 14.5M35 14.5H29.5M35 14.5V20" stroke="url(#llGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
