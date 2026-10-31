@@ -1,0 +1,665 @@
+/* ==========================================================================
+   LEAP LIMITLESS - SPECIALIZED INTERACTIVE WIDGETS & PAGE STYLES
+   Diagnostic Assessment, Salary Calculator, Blueprint Tabs, Case Studies
+   ========================================================================== */
+
+/* Hero Section Specifics */
+.hero-wrapper {
+  position: relative;
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(197, 155, 99, 0.12) 0%, rgba(13, 28, 23, 0.05) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: visible;
+}
+
+.hero-image-inner {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-light);
+  position: relative;
+}
+
+.hero-image-inner img {
+  width: 100%;
+  height: clamp(440px, 50vw, 560px);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.floating-case-card {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  max-width: 320px;
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .floating-case-card {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+}
+
+.floating-stat-badge {
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--bg-dark-border);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .floating-stat-badge {
+    position: static;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Institutional Logo Strip */
+.trust-strip {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  opacity: 0.7;
+}
+
+.trust-logo-item {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   INTERACTIVE IMMIGRANT CAREER & LEADERSHIP DIAGNOSTIC WIDGET
+   ========================================================================== */
+.diagnostic-container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.diagnostic-header {
+  background-color: var(--bg-dark);
+  color: var(--text-inverse);
+  padding: 2rem clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.diagnostic-progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-dark-border);
+  position: relative;
+}
+
+.diagnostic-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-accent-gold) 0%, var(--brand-emerald) 100%);
+  width: 16.66%;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diagnostic-body {
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.diagnostic-step {
+  display: none;
+  animation: fadeInStep 0.35s ease;
+}
+
+.diagnostic-step.active {
+  display: block;
+}
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.diagnostic-question-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.diagnostic-question-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: var(--brand-primary);
+}
+
+.diagnostic-question-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+
+.diagnostic-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.diagnostic-option-card {
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface-elevated);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.diagnostic-option-card:hover {
+  border-color: var(--brand-accent-gold);
+  background-color: #FFFDF9;
+  transform: translateX(4px);
+}
+
+.diagnostic-option-card.selected {
+  border-color: var(--brand-accent-gold-dark);
+  background-color: #FFFDF7;
+  box-shadow: 0 0 0 2px var(--brand-accent-gold);
+}
+
+.option-radio {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.diagnostic-option-card.selected .option-radio {
+  border-color: var(--brand-accent-gold-dark);
+  background-color: var(--brand-accent-gold-dark);
+}
+
+.diagnostic-option-card.selected .option-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FAF9F5;
+}
+
+.option-text h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.option-text p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.diagnostic-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Results State */
+.diagnostic-results {
+  text-align: center;
+  display: none;
+  animation: fadeInStep 0.5s ease;
+}
+
+.diagnostic-results.active {
+  display: block;
+}
+
+.results-badge-wrapper {
+  display: inline-flex;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--brand-accent-gold-light);
+  color: var(--brand-accent-gold-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+}
+
+.results-score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .results-score-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.score-card {
+  background: var(--bg-canvas-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+}
+
+.score-bar-bg {
+  height: 6px;
+  background: var(--border-light);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+
+.score-bar-value {
+  height: 100%;
+  background: var(--brand-accent-gold);
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   INTERACTIVE EXECUTIVE COMPENSATION & PROMOTION CALCULATOR
+   ========================================================================== */
+.calculator-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: var(--shadow-lg);
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+@media (max-width: 900px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-slider-group {
+  margin-bottom: 2rem;
+}
+
+.calc-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.calc-slider-val {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+input[type="range"].calc-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border-light);
+  outline: none;
+}
+
+input[type="range"].calc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  border: 2px solid var(--brand-accent-gold);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform var(--transition-fast);
+}
+
+input[type="range"].calc-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.calc-output-panel {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border-dark);
+}
+
+.calc-highlight-metric {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: var(--brand-accent-gold);
+  margin: 0.5rem 0 1rem;
+}
+
+/* ==========================================================================
+   THE IMMIGRANT CAREER BLUEPRINT TABS (5 UNWRITTEN RULES)
+   ========================================================================== */
+.blueprint-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.blueprint-tab {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.blueprint-tab:hover {
+  color: var(--brand-primary);
+  background: var(--bg-surface-elevated);
+}
+
+.blueprint-tab.active {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+
+.blueprint-content {
+  display: none;
+  animation: fadeInStep 0.35s ease;
+}
+
+.blueprint-content.active {
+  display: block;
+}
+
+.shift-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .shift-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shift-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.shift-card.legacy {
+  background: #FBF6F6;
+  border: 1px solid #F1D4D4;
+}
+
+.shift-card.sovereign {
+  background: #F5F9F7;
+  border: 1px solid #C4E3D4;
+}
+
+.script-box {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  border-left: 3px solid var(--brand-accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   CONFIDENTIAL DISCOVERY CALENDAR SIMULATION
+   ========================================================================== */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.cal-day-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.cal-slot {
+  aspect-ratio: 1;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bg-surface);
+  transition: all var(--transition-fast);
+}
+
+.cal-slot.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: var(--bg-canvas-alt);
+}
+
+.cal-slot.available:hover {
+  border-color: var(--brand-accent-gold);
+  background: #FFFDF9;
+}
+
+.cal-slot.selected {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .time-slots-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.time-btn {
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  background: var(--bg-surface);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.time-btn:hover {
+  border-color: var(--brand-accent-gold);
+}
+
+.time-btn.selected {
+  background: var(--brand-accent-gold);
+  color: #0E1B15;
+  border-color: var(--brand-accent-gold);
+}
+
+/* ==========================================================================
+   PROGRAMS PAGE : LAYOUT STYLES
+   ========================================================================== */
+
+.program-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding: 3rem 0;
+}
+
+.program-row-reverse {
+  grid-template-columns: 1fr 100px;
+}
+
+.program-row-reverse .program-icon-col {
+  order: 2;
+}
+
+.program-icon-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.25rem;
+}
+
+.program-content-col {
+  /* no special styles needed */
+}
+
+.program-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .program-row,
+  .program-row-reverse {
+    grid-template-columns: 1fr;
+  }
+  .program-row-reverse .program-icon-col {
+    order: unset;
+  }
+}
+
+/* ==========================================================================
+   ABOUT PAGE : ARTICLE BODY
+   ========================================================================== */
+
+.article-body {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.article-body p {
+  margin-bottom: 1.5rem;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
