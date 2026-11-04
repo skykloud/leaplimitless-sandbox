@@ -164,11 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (intakeContainer) intakeContainer.style.display = 'none';
-      calculateAndShowResults(userName);
+      calculateAndShowResults(userName, userEmail, subscribed);
     });
   }
 
-  function calculateAndShowResults(userName) {
+  function calculateAndShowResults(userName, userEmail, subscribed) {
     // Hide questions and intake, show results
     if (questionsWrapper) questionsWrapper.style.display = 'none';
     if (intakeContainer) intakeContainer.style.display = 'none';
@@ -230,6 +230,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const archetypeDescEl = document.getElementById('archetype-desc');
     if (archetypeTitleEl) archetypeTitleEl.innerText = archetypeTitle;
     if (archetypeDescEl) archetypeDescEl.innerText = archetypeDesc;
+
+    if (userEmail && window.submitLeapLimitlessRequest) {
+      window.submitLeapLimitlessRequest({
+        type: 'Diagnostic Assessment',
+        name: userName,
+        email: userEmail,
+        focus: archetypeTitle,
+        details: `Scores -> Executive Gravitas: ${gravitasPercent}%, Cultural Fluency: ${culturalPercent}%, Compensation Leverage: ${compPercent}%`,
+        extra: `Newsletter Opt-In: ${subscribed ? 'Yes' : 'No'}`,
+        sourcePage: '/diagnostic.html'
+      });
+    }
 
     // Personalize results if name is available
     const nameToDisplay = userName || (() => {

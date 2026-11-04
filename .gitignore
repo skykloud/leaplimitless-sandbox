@@ -23,3 +23,8 @@ yarn-error.log*
 .env.local
 .vscode/
 .idea/
+
+# Local-only admin & profile tools (never promote to public site)
+submissions.html
+coaching-profile.html
+*.docx

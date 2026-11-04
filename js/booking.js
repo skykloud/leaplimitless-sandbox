@@ -119,22 +119,36 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.setAttribute('disabled', 'true');
 
       // Prepare mailto backup payload
-      const mailSubject = encodeURIComponent(`[Candidate Briefing] ${fullName} - ${currentOrg}`);
+      const mailSubject = encodeURIComponent(`[Discovery Call Request] ${fullName} - ${currentTitle}`);
       const mailBody = encodeURIComponent(
-        `CONFIDENTIAL EXECUTIVE CANDIDATE BRIEFING\n` +
-        `Advisor: Gagan Sharma, ICF Certified Coach (coach@leaplimitless.com)\n\n` +
-        `Candidate Name: ${fullName}\n` +
-        `Current Role: ${currentTitle}\n` +
-        `Organization: ${currentOrg}\n` +
+        `DISCOVERY CALL BRIEFING\n` +
+        `Coach: Gagan Sharma, ICF Certified Coach (coach@leaplimitless.com)\n\n` +
+        `Name: ${fullName}\n` +
+        `Current Role / Stage: ${currentTitle}\n` +
+        `Organization: ${currentOrg || 'Not specified'}\n` +
         `Email: ${workEmail}\n` +
         `Mobile Phone: ${phoneNumber}\n` +
-        `Strategic Priority: ${strategicChallenge}\n\n` +
+        `Primary Focus: ${strategicChallenge}\n\n` +
         `Objective & Context:\n${executiveNotes || 'None provided'}\n\n` +
-        `Submitted via leaplimitless.com intake form.`
+        `Submitted via leaplimitless.com/apply.html`
       );
       const mailtoUrl = `mailto:coach@leaplimitless.com?subject=${mailSubject}&body=${mailBody}`;
 
-      setTimeout(() => {
+      // Send automatic background email to coach@leaplimitless.com & save to List View
+      const sendPromise = window.submitLeapLimitlessRequest
+        ? window.submitLeapLimitlessRequest({
+            type: 'Discovery Call',
+            name: fullName,
+            email: workEmail,
+            phone: phoneNumber,
+            roleOrg: currentOrg ? `${currentTitle} (${currentOrg})` : currentTitle,
+            focus: strategicChallenge,
+            details: executiveNotes || 'None provided',
+            sourcePage: '/apply.html'
+          })
+        : Promise.resolve();
+
+      sendPromise.finally(() => {
         submitBtn.innerHTML = originalHtml;
         submitBtn.removeAttribute('disabled');
 
@@ -170,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
           console.warn('Browser popup blocked auto-open, user can click modal button:', err);
         }
-      }, 700);
+      });
     });
   }
 });
