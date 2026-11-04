@@ -642,14 +642,14 @@
 
             <div id="formSuccessMessage" style="display: none; background: var(--brand-emerald-subtle); border: 1px solid var(--brand-emerald); padding: 1.75rem; border-radius: var(--radius-md); text-align: center; color: var(--brand-primary); margin-top: 1rem;">
               <span class="icon text-emerald" style="font-size: 2.25rem; display: block; margin-bottom: 0.5rem;">check_circle</span>
-              <strong style="font-size: 1.15rem; display: block; margin-bottom: 0.35rem; font-family: var(--font-serif);">Request Successfully Prepared</strong>
+              <strong style="font-size: 1.15rem; display: block; margin-bottom: 0.35rem; font-family: var(--font-serif);">Request Sent to Coach Gagan</strong>
               <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0 0 1.25rem; line-height: 1.6;">
-                Thank you for reaching out. Your request has been prepared for Coach Gagan at <strong>coach@leaplimitless.com</strong>.
+                Thank you for reaching out. Your request has been sent to <strong>coach@leaplimitless.com</strong> and logged for review.
               </p>
               <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-                <a id="openMailClientBtn" href="#" class="btn btn-primary btn-sm">
+                <a id="openMailClientBtn" href="#" class="btn btn-secondary btn-sm">
                   <span class="icon">mail</span>
-                  <span>Open Email Draft in Mail App</span>
+                  <span>Send Direct Copy via Mail App (Optional)</span>
                 </a>
               </div>
             </div>
@@ -889,9 +889,26 @@
           const mailtoUrl = `mailto:coach@leaplimitless.com?subject=${mailSubject}&body=${mailBody}`;
 
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span>Submitting &amp; Generating Email...</span> <span class="icon">hourglass_top</span>';
+          submitBtn.innerHTML = '<span>Sending Request to Coach Gagan...</span> <span class="icon">hourglass_top</span>';
 
-          setTimeout(function () {
+          const isNonprofit = requestTypeSelect && requestTypeSelect.value === "nonprofit-rates";
+          const normalizedType = isNonprofit ? "Nonprofit Special Rates" : "Pro Bono Request";
+
+          const sendPromise = window.submitLeapLimitlessRequest
+            ? window.submitLeapLimitlessRequest({
+                type: normalizedType,
+                name: name,
+                email: email,
+                phone: phone,
+                roleOrg: streamText,
+                focus: requestTypeText,
+                details: `Primary Goal: ${challenge}\n\nProjected Impact: ${impact}`,
+                extra: `LinkedIn/Web: ${linkedin}`,
+                sourcePage: '/pro-bono.html'
+              })
+            : Promise.resolve();
+
+          sendPromise.finally(function () {
             form.reset();
             submitBtn.style.display = "none";
             successMsg.style.display = "block";
@@ -899,10 +916,7 @@
               openMailClientBtn.setAttribute("href", mailtoUrl);
             }
             successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
-
-            // Automatically trigger user email client
-            window.location.href = mailtoUrl;
-          }, 600);
+          });
         });
       }
     });

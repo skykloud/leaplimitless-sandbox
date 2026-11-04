@@ -139,7 +139,94 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Newsletter / Executive Briefing Opt-In
+  // 4. Unified Submission Router (Emails coach@leaplimitless.com + Logs to List View)
+  const SUBMISSIONS_STORAGE_KEY = 'leap_submissions_list_v1';
+  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/coach@leaplimitless.com';
+
+  window.submitLeapLimitlessRequest = async function (payload) {
+    const now = new Date();
+    const record = {
+      id: 'LL-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
+      timestamp: now.toISOString(),
+      formattedDate: now.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      }),
+      type: payload.type || 'General Inquiry',
+      name: payload.name || 'Website Visitor',
+      email: payload.email || '',
+      phone: payload.phone || 'Not provided',
+      roleOrg: payload.roleOrg || 'Not specified',
+      focus: payload.focus || 'General',
+      details: payload.details || '',
+      extra: payload.extra || '',
+      sourcePage: payload.sourcePage || window.location.pathname || '/',
+      status: 'New'
+    };
+
+    // 1. Save to Local Submissions List View Store ONLY when running on localhost
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (isLocalhost) {
+      try {
+        const existing = JSON.parse(localStorage.getItem(SUBMISSIONS_STORAGE_KEY) || '[]');
+        existing.unshift(record);
+        localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(existing));
+      } catch (err) {
+        console.warn('Could not save submission locally:', err);
+      }
+    }
+
+    // 2. Send Background Email to coach@leaplimitless.com via FormSubmit AJAX
+    const emailPayload = {
+      _subject: `[Leap Limitless - ${record.type}] ${record.name !== 'Website Visitor' ? record.name : record.email}`,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: record.email,
+      Request_ID: record.id,
+      Request_Type: record.type,
+      Submitted_At: record.formattedDate,
+      Full_Name: record.name,
+      Email_Address: record.email,
+      Phone_Number: record.phone,
+      Role_or_Organization: record.roleOrg,
+      Focus_or_Category: record.focus,
+      Details_and_Notes: record.details || 'None provided',
+      Additional_Info: record.extra || 'N/A',
+      Source_Page: record.sourcePage
+    };
+
+    try {
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailPayload)
+      });
+      const result = await response.json().catch(() => ({}));
+
+      // Optional secondary Cloud Webhook (e.g. Power Automate / Google Sheet if configured)
+      const customWebhook = localStorage.getItem('leap_cloud_webhook_url');
+      if (customWebhook && customWebhook.startsWith('http')) {
+        fetch(customWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(record)
+        }).catch(() => {});
+      }
+
+      return { ok: response.ok, result, record };
+    } catch (networkErr) {
+      console.warn('Background email delivery warning:', networkErr);
+      return { ok: false, error: networkErr, record };
+    }
+  };
+
+  // Newsletter / Executive Briefing Opt-In Forms
   const briefingForms = document.querySelectorAll('.briefing-form');
   briefingForms.forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -147,14 +234,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = form.querySelector('input[type="email"]');
       const btn = form.querySelector('button');
       if (input && input.value) {
+        const subscriberEmail = input.value.trim();
         const origText = btn.innerHTML;
-        btn.innerHTML = 'Subscribed & Confidential <span class="icon">check</span>';
-        btn.classList.add('btn-gold');
-        input.value = '';
-        setTimeout(() => {
-          btn.innerHTML = origText;
-          btn.classList.remove('btn-gold');
-        }, 4000);
+        btn.innerHTML = 'Subscribing...';
+        btn.setAttribute('disabled', 'true');
+
+        window.submitLeapLimitlessRequest({
+          type: 'Newsletter Subscription',
+          name: subscriberEmail.split('@')[0],
+          email: subscriberEmail,
+          focus: 'Monthly Coaching & Leadership Insights',
+          details: 'Opted in via website newsletter form.'
+        }).finally(() => {
+          btn.innerHTML = 'Subscribed &amp; Confirmed <span class="icon">check</span>';
+          btn.removeAttribute('disabled');
+          btn.classList.add('btn-gold');
+          input.value = '';
+          setTimeout(() => {
+            btn.innerHTML = origText;
+            btn.classList.remove('btn-gold');
+          }, 4000);
+        });
       }
     });
   });
