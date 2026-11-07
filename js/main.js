@@ -139,90 +139,94 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Unified Submission Router (Emails coach@leaplimitless.com + Logs to List View)
-  const SUBMISSIONS_STORAGE_KEY = 'leap_submissions_list_v1';
-  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/coach@leaplimitless.com';
+  // 4. Unified Submission Router (Submits to Microsoft Form: Leap Limitless Coaching Requests)
+  const MS_FORM_ID = 'UpKv0Eu0xUSDrLy1GycO6-808UQy815Ct_t1ldoWaO9UNkY5S1lJR1pCWlpFQlJFSVlEQ0c0NzBGVC4u';
+  const MS_FORM_BASE_URL = `https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=${MS_FORM_ID}`;
+  const MS_FORM_API_URL = `https://forms.cloud.microsoft/formapi/api/d0af9252-b44b-44c5-83ac-bcb51b270eeb/users/44f134ef-f332-425e-b7fb-7595da1668ef/forms('${MS_FORM_ID}')/responses`;
+
+  // Exact Question IDs from Gagan's Microsoft Form
+  const MS_Q = {
+    requestType: 'r99e013107f3542d7b71326586708f549',
+    fullName: 'r2f2b4072347445aca2a1c4fbf6ab4341',
+    email: 'rc41c2038581c478baf358654f07ef2cd',
+    phone: 'r70a9d9278e7542f389109c5b3df81b67',
+    roleOrg: 'r8c562b32fca5447383cc4a7848bf6606',
+    focus: 'rca14cd2311164db891e38cca4dea0068',
+    goals: 'readd2b5595e14cabaf81dc8c109a0f41'
+  };
+
+  function mapToMsFormChoice(type) {
+    const t = String(type || '').toLowerCase();
+    if (t.includes('discovery')) return 'Discovery Call (30-Min Consultation)';
+    if (t.includes('pro bono')) return '1:1 Pro Bono Coaching Request';
+    if (t.includes('nonprofit')) return 'Special Rates for Nonprofits';
+    return 'General Inquiry / Newsletter';
+  }
+
+  window.buildPrefilledMsFormUrl = function (payload) {
+    const choice = mapToMsFormChoice(payload.type);
+    const params = new URLSearchParams({
+      id: MS_FORM_ID,
+      [MS_Q.requestType]: choice,
+      [MS_Q.fullName]: payload.name || '',
+      [MS_Q.email]: payload.email || '',
+      [MS_Q.phone]: payload.phone || '',
+      [MS_Q.roleOrg]: payload.roleOrg || '',
+      [MS_Q.focus]: payload.focus || '',
+      [MS_Q.goals]: payload.details || ''
+    });
+    return `https://forms.cloud.microsoft/Pages/ResponsePage.aspx?${params.toString()}`;
+  };
 
   window.submitLeapLimitlessRequest = async function (payload) {
-    const now = new Date();
-    const record = {
-      id: 'LL-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase(),
-      timestamp: now.toISOString(),
-      formattedDate: now.toLocaleString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit'
-      }),
-      type: payload.type || 'General Inquiry',
-      name: payload.name || 'Website Visitor',
-      email: payload.email || '',
-      phone: payload.phone || 'Not provided',
-      roleOrg: payload.roleOrg || 'Not specified',
-      focus: payload.focus || 'General',
-      details: payload.details || '',
-      extra: payload.extra || '',
-      sourcePage: payload.sourcePage || window.location.pathname || '/',
-      status: 'New'
-    };
+    const nowIso = new Date().toISOString();
+    const choice = mapToMsFormChoice(payload.type);
 
-    // 1. Save to Local Submissions List View Store ONLY when running on localhost
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    if (isLocalhost) {
-      try {
-        const existing = JSON.parse(localStorage.getItem(SUBMISSIONS_STORAGE_KEY) || '[]');
-        existing.unshift(record);
-        localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(existing));
-      } catch (err) {
-        console.warn('Could not save submission locally:', err);
+    const msAnswers = [
+      { questionId: MS_Q.requestType, answer1: choice },
+      { questionId: MS_Q.fullName, answer1: payload.name || 'Website Visitor' },
+      { questionId: MS_Q.email, answer1: payload.email || '' },
+      { questionId: MS_Q.phone, answer1: payload.phone || 'Not provided' },
+      { questionId: MS_Q.roleOrg, answer1: payload.roleOrg || 'Not specified' },
+      { questionId: MS_Q.focus, answer1: payload.focus || 'General' },
+      {
+        questionId: MS_Q.goals,
+        answer1: [payload.details, payload.extra, payload.sourcePage ? `(Source: ${payload.sourcePage})` : '']
+          .filter(Boolean)
+          .join(' | ')
       }
-    }
+    ];
 
-    // 2. Send Background Email to coach@leaplimitless.com via FormSubmit AJAX
-    const emailPayload = {
-      _subject: `[Leap Limitless - ${record.type}] ${record.name !== 'Website Visitor' ? record.name : record.email}`,
-      _template: 'table',
-      _captcha: 'false',
-      _replyto: record.email,
-      Request_ID: record.id,
-      Request_Type: record.type,
-      Submitted_At: record.formattedDate,
-      Full_Name: record.name,
-      Email_Address: record.email,
-      Phone_Number: record.phone,
-      Role_or_Organization: record.roleOrg,
-      Focus_or_Category: record.focus,
-      Details_and_Notes: record.details || 'None provided',
-      Additional_Info: record.extra || 'N/A',
-      Source_Page: record.sourcePage
+    const msBody = {
+      startDate: nowIso,
+      submitDate: nowIso,
+      answers: JSON.stringify(msAnswers)
     };
+
+    const endpoint = '/api/submit-ms-form';
 
     try {
-      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(emailPayload)
+        body: JSON.stringify(msBody)
       });
       const result = await response.json().catch(() => ({}));
-
-      // Optional secondary Cloud Webhook (e.g. Power Automate / Google Sheet if configured)
-      const customWebhook = localStorage.getItem('leap_cloud_webhook_url');
-      if (customWebhook && customWebhook.startsWith('http')) {
-        fetch(customWebhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(record)
-        }).catch(() => {});
-      }
-
-      return { ok: response.ok, result, record };
+      return {
+        ok: response.ok,
+        result,
+        prefilledUrl: window.buildPrefilledMsFormUrl(payload)
+      };
     } catch (networkErr) {
-      console.warn('Background email delivery warning:', networkErr);
-      return { ok: false, error: networkErr, record };
+      console.warn('Direct MS Form API warning:', networkErr);
+      return {
+        ok: false,
+        error: networkErr,
+        prefilledUrl: window.buildPrefilledMsFormUrl(payload)
+      };
     }
   };
 
