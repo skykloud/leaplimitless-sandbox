@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /sandbox/
+Disallow: /organizations.html
+Disallow: /business-card.html
+Disallow: /coaching-profile.html
+
+Sitemap: https://leaplimitless.com/sitemap.xml

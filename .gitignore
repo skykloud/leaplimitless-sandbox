@@ -26,4 +26,5 @@ yarn-error.log*
 
 # Local-only admin & profile tools (never promote to public site)
 coaching-profile.html
+business-card.html
 *.docx
