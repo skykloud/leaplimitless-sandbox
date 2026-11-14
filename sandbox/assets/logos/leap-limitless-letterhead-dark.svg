@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" width="720" height="150" fill="none">
+  <defs>
+    <linearGradient id="s2Gold" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B6894C"/>
+      <stop offset="50%" stop-color="#D5AD72"/>
+      <stop offset="100%" stop-color="#C59B63"/>
+    </linearGradient>
+    <linearGradient id="s2GoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C99B"/>
+      <stop offset="100%" stop-color="#C59B63"/>
+    </linearGradient>
+    <linearGradient id="s2Forest" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#07150F"/>
+      <stop offset="100%" stop-color="#122B20"/>
+    </linearGradient>
+    <linearGradient id="s2Ivory" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EDE6D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="150" rx="14" fill="#0D1B16"/>
+  <rect x="1" y="1" width="718" height="148" rx="13" stroke="#C59B63" stroke-width="1.2" stroke-opacity="0.35"/>
+  <g transform="translate(16, 12) scale(1.02)">
+    
+    <!-- 1. Upper-Left Gold Inner Infinity Ribbon -->
+    <path d="M 24,76 C 23,53 43,45 62,57 C 69,62 75,68 80,74 L 71,83 C 65,76 59,70 53,66 C 40,58 26,63 24,76 Z" fill="url(#s2Gold)"/>
+    <!-- 2. Lower-Right Gold Inner Infinity Loop (Level baseline y=116) -->
+    <path d="M 91,87 C 98,95 106,102 115,103 C 130,105 140,94 140,78 C 142,93 134,114 115,116 C 101,117 89,107 80,96 Z" fill="url(#s2Gold)"/>
+    <!-- 3. Soaring Gold Upper Wing (The "Leap" Trajectory) -->
+    <path d="M 79,69 C 93,48 113,37 134,29 C 146,24 155,18 162,10 C 162,24 154,35 140,42 C 120,50 101,57 85,72 Z" fill="url(#s2GoldLight)"/>
+    <!-- 4. Main Deep Forest Infinity Loop & Ascending Lower Wing (Level baseline y=116) -->
+    <path d="M 48,46 C 24,48 13,67 17,88 C 21,107 42,115 62,105 C 75,98 86,86 98,74 C 113,59 129,51 146,45 C 153,42 158,37 160,30 C 159,44 151,54 137,59 C 120,65 106,74 92,89 C 78,103 65,115 45,116 C 21,117 5,99 6,77 C 7,56 25,44 48,46 Z" fill="url(#s2Ivory)"/>
+    <!-- 5. Outer-Right Forest Loop Crescent (Level baseline y=116) -->
+    <path d="M 133,66 L 145,62 C 154,77 152,100 138,111 C 132,115 124,117 117,116 C 131,112 140,100 140,85 C 140,78 137,71 133,66 Z" fill="url(#s2Ivory)"/>
+    
+  </g>
+  <text x="210" y="76" fill="#FAF9F5" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="bold" letter-spacing="0.4">Leap Limitless</text>
+  <line x1="212" y1="95" x2="695" y2="95" stroke="#C59B63" stroke-width="1.5" stroke-opacity="0.55"/>
+  <text x="212" y="119" fill="#D5AD72" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="bold" letter-spacing="4.6">COACH &#8226; PERSONAL &#8226; CAREER &#8226; LEADERSHIP</text>
+</svg>
